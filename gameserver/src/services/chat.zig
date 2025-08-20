@@ -18,9 +18,9 @@ pub fn onGetFriendListInfo(session: *Session, _: *const Packet, allocator: Alloc
 
     var assist_list = ArrayList(protocol.AssistSimpleInfo).init(allocator);
     try assist_list.appendSlice(&[_]protocol.AssistSimpleInfo{
-        .{ .pos = 0, .level = 80, .avatar_id = 1403, .dressed_skin_id = 0 },
-        .{ .pos = 1, .level = 80, .avatar_id = 1407, .dressed_skin_id = 0 },
-        .{ .pos = 2, .level = 80, .avatar_id = 1001, .dressed_skin_id = 1100101 },
+        .{ .pos = 0, .level = 80, .avatar_id = 1406, .dressed_skin_id = 0 },
+        .{ .pos = 1, .level = 80, .avatar_id = 1410, .dressed_skin_id = 0 },
+        .{ .pos = 2, .level = 80, .avatar_id = 1413, .dressed_skin_id = 0 },
     });
 
     var friend = protocol.FriendSimpleInfo.init(allocator);
@@ -29,6 +29,7 @@ pub fn onGetFriendListInfo(session: *Session, _: *const Packet, allocator: Alloc
     friend.remark_name = .{ .Const = "ReversedRooms" }; //friend_custom_nickname
     friend.is_marked = true;
     friend.player_info = protocol.PlayerSimpleInfo{
+        .friend_card_skin = 253001,
         .signature = .{ .Const = "https://discord.gg/reversedrooms" },
         .nickname = .{ .Const = "EvernightSR" },
         .level = 70,

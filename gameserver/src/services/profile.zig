@@ -50,7 +50,8 @@ pub fn onGetPlayerBoardData(session: *Session, _: *const Packet, allocator: Allo
     const player_icon_config = try Config.loadPlayerIconConfig(allocator, "resources/AvatarPlayerIcon.json");
     display_list.is_display = true;
     rsp.retcode = 0;
-    rsp.OLDMJONBJOM = 253000;
+    try rsp.own_personal_card_skin.appendSlice(&Data.OwnedPersonalCardSkin);
+    rsp.cur_personal_card_skin = 253001;
     rsp.current_head_icon_frame = .{
         .head_icon_frame_duration = 4294967295,
         .head_icon_frame_id = 226004,
@@ -69,9 +70,6 @@ pub fn onGetPlayerBoardData(session: *Session, _: *const Packet, allocator: Allo
             .id = head_id.id,
         };
         try rsp.unlocked_head_icon_list.append(head_icon);
-    }
-    for (Data.OwnedPersonalCardSkin) |card_skin_id| {
-        try rsp.KKNJHENMGPK.append(card_skin_id);
     }
     try session.send(CmdID.CmdGetPlayerBoardDataScRsp, rsp);
 }
@@ -142,4 +140,11 @@ pub fn onGetPlayerDetailInfo(session: *Session, packet: *const Packet, allocator
     detail.level = 70;
     rsp.detail_info = detail;
     try session.send(CmdID.CmdGetPlayerDetailInfoScRsp, rsp);
+}
+pub fn onSetPersonalCard(session: *Session, packet: *const Packet, allocator: Allocator) !void {
+    const req = try packet.getProto(protocol.SetPersonalCardCsReq, allocator);
+    try session.send(CmdID.CmdSetPersonalCardScRsp, protocol.SetPersonalCardScRsp{
+        .cur_personal_card_skin = req.id,
+        .retcode = 0,
+    });
 }

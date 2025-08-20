@@ -85,6 +85,7 @@ pub const HandlerList = [_]struct { CmdID, Action }{
     .{ CmdID.CmdSelectPhoneCaseCsReq, profile.onSelectPhoneCase },
     .{ CmdID.CmdUpdatePlayerSettingCsReq, profile.onUpdatePlayerSetting },
     .{ CmdID.CmdGetPlayerDetailInfoCsReq, profile.onGetPlayerDetailInfo },
+    .{ CmdID.CmdSetPersonalCardCsReq, profile.onSetPersonalCard },
     //mission
     .{ CmdID.CmdGetTutorialGuideCsReq, mission.onGetTutorialGuideStatus },
     .{ CmdID.CmdGetMissionStatusCsReq, mission.onGetMissionStatus },

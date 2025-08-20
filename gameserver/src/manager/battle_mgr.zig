@@ -201,6 +201,21 @@ const technique_buffs = [_]BuffRule{
             } },
         },
     },
+    .{
+        .avatar_id = 1414,
+        .buffs = &.{
+            .{ .id = 141401, .dynamic_values = &.{
+                .{ .key = .{ .Const = "SkillIndex" }, .value = 0 },
+            } },
+            .{
+                .id = 141403,
+                .owner_is_avatar = false,
+                .dynamic_values = &.{
+                    .{ .key = .{ .Const = "#ADF_1" }, .value = 1 },
+                },
+            },
+        },
+    },
 };
 
 fn addTechniqueBuffs(allocator: Allocator, battle: *protocol.SceneBattleInfo, avatar: protocol.BattleAvatar, avatarConf: Config.Avatar, avatar_index: u32) !void {

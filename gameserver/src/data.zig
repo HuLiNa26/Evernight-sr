@@ -42,7 +42,7 @@ pub const OwnedChatBubbles = [_]u32{ 220000, 220001, 220002, 220003, 220004, 220
 pub const OwnedPhoneThemes = [_]u32{ 221000, 221001, 221002, 221003, 221004, 221005, 221006, 221007, 221008, 221009, 221010, 221011, 221012 };
 pub const OwnedPhoneCases = [_]u32{ 254000, 254001 };
 
-pub const OwnedPersonalCardSkin = [_]u32{253000};
+pub const OwnedPersonalCardSkin = [_]u32{ 253000, 253001, 253002 };
 
 pub const ItemList = [_]u32{ 251001, 251002, 251003, 110431, 110507, 101, 239 };
 

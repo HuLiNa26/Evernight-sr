@@ -22922,7 +22922,7 @@ pub const HIEJJBDNCNH = struct {
 };
 
 pub const PlayerSimpleInfo = struct {
-    ANPLLAOBFJI: u32 = 0,
+    friend_card_skin: u32 = 0,
     platform: PlatformType = @enumFromInt(0),
     uid: u32 = 0,
     signature: ManagedString = .Empty,
@@ -22939,7 +22939,7 @@ pub const PlayerSimpleInfo = struct {
     GMALCPNOHBF: ManagedString = .Empty,
 
     pub const _desc_table = .{
-        .ANPLLAOBFJI = fd(3, .{ .Varint = .Simple }),
+        .friend_card_skin = fd(3, .{ .Varint = .Simple }),
         .platform = fd(2, .{ .Varint = .Simple }),
         .uid = fd(9, .{ .Varint = .Simple }),
         .signature = fd(15, .String),
@@ -23111,7 +23111,7 @@ pub const PlayerDetailInfo = struct {
     nickname: ManagedString = .Empty,
     OOOPBHIMNFD: u32 = 0,
     GMALCPNOHBF: ManagedString = .Empty,
-    ANPLLAOBFJI: u32 = 0,
+    friend_card_skin: u32 = 0,
     assist_avatar_list: ArrayList(DisplayAvatarDetailInfo),
     KBMGBNINFBK: u32 = 0,
     uid: u32 = 0,
@@ -23133,7 +23133,7 @@ pub const PlayerDetailInfo = struct {
         .nickname = fd(1, .String),
         .OOOPBHIMNFD = fd(3, .{ .Varint = .Simple }),
         .GMALCPNOHBF = fd(6, .String),
-        .ANPLLAOBFJI = fd(801, .{ .Varint = .Simple }),
+        .friend_card_skin = fd(801, .{ .Varint = .Simple }),
         .assist_avatar_list = fd(1451, .{ .List = .{ .SubMessage = {} } }),
         .KBMGBNINFBK = fd(10, .{ .Varint = .Simple }),
         .uid = fd(2, .{ .Varint = .Simple }),
@@ -36515,22 +36515,22 @@ pub const GetPlayerBoardDataCsReq = struct {
 
 pub const GetPlayerBoardDataScRsp = struct {
     signature: ManagedString = .Empty,
-    KKNJHENMGPK: ArrayList(u32),
+    own_personal_card_skin: ArrayList(u32),
     current_head_icon_id: u32 = 0,
     assist_avatar_id_list: ArrayList(u32),
     display_avatar_vec: ?DisplayAvatarVec = null,
-    OLDMJONBJOM: u32 = 0,
+    cur_personal_card_skin: u32 = 0,
     retcode: u32 = 0,
     current_head_icon_frame: ?HeadIconFrame = null,
     unlocked_head_icon_list: ArrayList(HeadIconData),
 
     pub const _desc_table = .{
         .signature = fd(2, .String),
-        .KKNJHENMGPK = fd(3, .{ .PackedList = .{ .Varint = .Simple } }),
+        .own_personal_card_skin = fd(3, .{ .PackedList = .{ .Varint = .Simple } }),
         .current_head_icon_id = fd(7, .{ .Varint = .Simple }),
         .assist_avatar_id_list = fd(4, .{ .PackedList = .{ .Varint = .Simple } }),
         .display_avatar_vec = fd(10, .{ .SubMessage = {} }),
-        .OLDMJONBJOM = fd(15, .{ .Varint = .Simple }),
+        .cur_personal_card_skin = fd(15, .{ .Varint = .Simple }),
         .retcode = fd(13, .{ .Varint = .Simple }),
         .current_head_icon_frame = fd(11, .{ .SubMessage = {} }),
         .unlocked_head_icon_list = fd(1, .{ .List = .{ .SubMessage = {} } }),
@@ -36573,11 +36573,11 @@ pub const SetPersonalCardCsReq = struct {
 
 pub const SetPersonalCardScRsp = struct {
     retcode: u32 = 0,
-    OLDMJONBJOM: u32 = 0,
+    cur_personal_card_skin: u32 = 0,
 
     pub const _desc_table = .{
         .retcode = fd(7, .{ .Varint = .Simple }),
-        .OLDMJONBJOM = fd(15, .{ .Varint = .Simple }),
+        .cur_personal_card_skin = fd(15, .{ .Varint = .Simple }),
     };
 
     pub usingnamespace protobuf.MessageMixins(@This());
