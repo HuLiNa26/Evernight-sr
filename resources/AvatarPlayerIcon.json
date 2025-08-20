@@ -1,0 +1,1152 @@
+{
+  "player_icon_config": [
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/UI_Message_Contacts_Anonymous.png",
+      "ID": 200001,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 1
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200101.png",
+      "ID": 200101,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200102.png",
+      "ID": 200102,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200103.png",
+      "ID": 200103,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200104.png",
+      "ID": 200104,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200105.png",
+      "ID": 200105,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200106.png",
+      "ID": 200106,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200107.png",
+      "ID": 200107,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200108.png",
+      "ID": 200108,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200109.png",
+      "ID": 200109,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200110.png",
+      "ID": 200110,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200111.png",
+      "ID": 200111,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200112.png",
+      "ID": 200112,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200113.png",
+      "ID": 200113,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200114.png",
+      "ID": 200114,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200115.png",
+      "ID": 200115,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200116.png",
+      "ID": 200116,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200117.png",
+      "ID": 200117,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200118.png",
+      "ID": 200118,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200119.png",
+      "ID": 200119,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200120.png",
+      "ID": 200120,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200121.png",
+      "ID": 200121,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200122.png",
+      "ID": 200122,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200123.png",
+      "ID": 200123,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200124.png",
+      "ID": 200124,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200125.png",
+      "ID": 200125,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200126.png",
+      "ID": 200126,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200127.png",
+      "ID": 200127,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200128.png",
+      "ID": 200128,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200129.png",
+      "ID": 200129,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200130.png",
+      "ID": 200130,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200131.png",
+      "ID": 200131,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200132.png",
+      "ID": 200132,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200133.png",
+      "ID": 200133,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200134.png",
+      "ID": 200134,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200135.png",
+      "ID": 200135,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200136.png",
+      "ID": 200136,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200137.png",
+      "ID": 200137,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200138.png",
+      "ID": 200138,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200139.png",
+      "ID": 200139,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200140.png",
+      "ID": 200140,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200141.png",
+      "ID": 200141,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200142.png",
+      "ID": 200142,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200143.png",
+      "ID": 200143,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200144.png",
+      "ID": 200144,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200145.png",
+      "ID": 200145,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/200146.png",
+      "ID": 200146,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 5
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202001.png",
+      "ID": 202001,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202002.png",
+      "ID": 202002,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202003.png",
+      "ID": 202003,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202004.png",
+      "ID": 202004,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202005.png",
+      "ID": 202005,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202006.png",
+      "ID": 202006,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202007.png",
+      "ID": 202007,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202008.png",
+      "ID": 202008,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202009.png",
+      "ID": 202009,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202010.png",
+      "ID": 202010,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202011.png",
+      "ID": 202011,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202012.png",
+      "ID": 202012,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202013.png",
+      "ID": 202013,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202014.png",
+      "ID": 202014,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202015.png",
+      "ID": 202015,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202016.png",
+      "ID": 202016,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202017.png",
+      "ID": 202017,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202018.png",
+      "ID": 202018,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202019.png",
+      "ID": 202019,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202020.png",
+      "ID": 202020,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202022.png",
+      "ID": 202022,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202023.png",
+      "ID": 202023,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202024.png",
+      "ID": 202024,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202025.png",
+      "ID": 202025,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202028.png",
+      "ID": 202028,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/AvatarSkin/1100101.png",
+      "ID": 202029,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 4
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202031.png",
+      "ID": 202031,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202033.png",
+      "ID": 202033,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/AvatarSkin/1131001.png",
+      "ID": 202034,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 4
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202035.png",
+      "ID": 202035,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202036.png",
+      "ID": 202036,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202037.png",
+      "ID": 202037,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202038.png",
+      "ID": 202038,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202039.png",
+      "ID": 202039,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Series/202040.png",
+      "ID": 202040,
+      "IsVisible": true,
+      "AvatarID": 0,
+      "SortType": 2
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1001.png",
+      "ID": 201001,
+      "IsVisible": true,
+      "AvatarID": 1001,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1002.png",
+      "ID": 201002,
+      "IsVisible": true,
+      "AvatarID": 1002,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1003.png",
+      "ID": 201003,
+      "IsVisible": true,
+      "AvatarID": 1003,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1004.png",
+      "ID": 201004,
+      "IsVisible": true,
+      "AvatarID": 1004,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1005.png",
+      "ID": 201005,
+      "IsVisible": true,
+      "AvatarID": 1005,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1006.png",
+      "ID": 201006,
+      "IsVisible": true,
+      "AvatarID": 1006,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1008.png",
+      "ID": 201008,
+      "IsVisible": true,
+      "AvatarID": 1008,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1009.png",
+      "ID": 201009,
+      "IsVisible": true,
+      "AvatarID": 1009,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1013.png",
+      "ID": 201013,
+      "IsVisible": true,
+      "AvatarID": 1013,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1101.png",
+      "ID": 201101,
+      "IsVisible": true,
+      "AvatarID": 1101,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1102.png",
+      "ID": 201102,
+      "IsVisible": true,
+      "AvatarID": 1102,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1103.png",
+      "ID": 201103,
+      "IsVisible": true,
+      "AvatarID": 1103,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1104.png",
+      "ID": 201104,
+      "IsVisible": true,
+      "AvatarID": 1104,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1105.png",
+      "ID": 201105,
+      "IsVisible": true,
+      "AvatarID": 1105,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1106.png",
+      "ID": 201106,
+      "IsVisible": true,
+      "AvatarID": 1106,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1107.png",
+      "ID": 201107,
+      "IsVisible": true,
+      "AvatarID": 1107,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1108.png",
+      "ID": 201108,
+      "IsVisible": true,
+      "AvatarID": 1108,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1109.png",
+      "ID": 201109,
+      "IsVisible": true,
+      "AvatarID": 1109,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1110.png",
+      "ID": 201110,
+      "IsVisible": true,
+      "AvatarID": 1110,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1111.png",
+      "ID": 201111,
+      "IsVisible": true,
+      "AvatarID": 1111,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1203.png",
+      "ID": 201203,
+      "IsVisible": true,
+      "AvatarID": 1203,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1204.png",
+      "ID": 201204,
+      "IsVisible": true,
+      "AvatarID": 1204,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1205.png",
+      "ID": 201205,
+      "IsVisible": true,
+      "AvatarID": 1205,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1206.png",
+      "ID": 201206,
+      "IsVisible": false,
+      "AvatarID": 1206,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/8001.png",
+      "ID": 208001,
+      "IsVisible": true,
+      "AvatarID": 8001,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/8002.png",
+      "ID": 208002,
+      "IsVisible": true,
+      "AvatarID": 8002,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/8003.png",
+      "ID": 208003,
+      "IsVisible": true,
+      "AvatarID": 8003,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/8004.png",
+      "ID": 208004,
+      "IsVisible": true,
+      "AvatarID": 8004,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/8005.png",
+      "ID": 208005,
+      "IsVisible": true,
+      "AvatarID": 8005,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/8006.png",
+      "ID": 208006,
+      "IsVisible": true,
+      "AvatarID": 8006,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1201.png",
+      "ID": 201201,
+      "IsVisible": false,
+      "AvatarID": 1201,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1202.png",
+      "ID": 201202,
+      "IsVisible": false,
+      "AvatarID": 1202,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1207.png",
+      "ID": 201207,
+      "IsVisible": false,
+      "AvatarID": 1207,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1208.png",
+      "ID": 201208,
+      "IsVisible": false,
+      "AvatarID": 1208,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1209.png",
+      "ID": 201209,
+      "IsVisible": false,
+      "AvatarID": 1209,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1210.png",
+      "ID": 201210,
+      "IsVisible": false,
+      "AvatarID": 1210,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1211.png",
+      "ID": 201211,
+      "IsVisible": false,
+      "AvatarID": 1211,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1212.png",
+      "ID": 201212,
+      "IsVisible": false,
+      "AvatarID": 1212,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1213.png",
+      "ID": 201213,
+      "IsVisible": false,
+      "AvatarID": 1213,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1214.png",
+      "ID": 201214,
+      "IsVisible": false,
+      "AvatarID": 1214,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1215.png",
+      "ID": 201215,
+      "IsVisible": false,
+      "AvatarID": 1215,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1112.png",
+      "ID": 201112,
+      "IsVisible": false,
+      "AvatarID": 1112,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1301.png",
+      "ID": 201301,
+      "IsVisible": false,
+      "AvatarID": 1301,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1302.png",
+      "ID": 201302,
+      "IsVisible": false,
+      "AvatarID": 1302,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1217.png",
+      "ID": 201217,
+      "IsVisible": false,
+      "AvatarID": 1217,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1303.png",
+      "ID": 201303,
+      "IsVisible": false,
+      "AvatarID": 1303,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1304.png",
+      "ID": 201304,
+      "IsVisible": false,
+      "AvatarID": 1304,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1305.png",
+      "ID": 201305,
+      "IsVisible": false,
+      "AvatarID": 1305,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1307.png",
+      "ID": 201307,
+      "IsVisible": false,
+      "AvatarID": 1307,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1308.png",
+      "ID": 201308,
+      "IsVisible": false,
+      "AvatarID": 1308,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1309.png",
+      "ID": 201309,
+      "IsVisible": false,
+      "AvatarID": 1309,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1312.png",
+      "ID": 201312,
+      "IsVisible": false,
+      "AvatarID": 1312,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1314.png",
+      "ID": 201314,
+      "IsVisible": false,
+      "AvatarID": 1314,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1315.png",
+      "ID": 201315,
+      "IsVisible": false,
+      "AvatarID": 1315,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1310.png",
+      "ID": 201310,
+      "IsVisible": false,
+      "AvatarID": 1310,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1306.png",
+      "ID": 201306,
+      "IsVisible": false,
+      "AvatarID": 1306,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1218.png",
+      "ID": 201218,
+      "IsVisible": false,
+      "AvatarID": 1218,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1224.png",
+      "ID": 201224,
+      "IsVisible": false,
+      "AvatarID": 1224,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1313.png",
+      "ID": 201313,
+      "IsVisible": false,
+      "AvatarID": 1313,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1221.png",
+      "ID": 201221,
+      "IsVisible": false,
+      "AvatarID": 1221,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1220.png",
+      "ID": 201220,
+      "IsVisible": false,
+      "AvatarID": 1220,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1317.png",
+      "ID": 201317,
+      "IsVisible": false,
+      "AvatarID": 1317,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1223.png",
+      "ID": 201223,
+      "IsVisible": false,
+      "AvatarID": 1223,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1222.png",
+      "ID": 201222,
+      "IsVisible": false,
+      "AvatarID": 1222,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1225.png",
+      "ID": 201225,
+      "IsVisible": false,
+      "AvatarID": 1225,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1402.png",
+      "ID": 201402,
+      "IsVisible": false,
+      "AvatarID": 1402,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1401.png",
+      "ID": 201401,
+      "IsVisible": false,
+      "AvatarID": 1401,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1403.png",
+      "ID": 201403,
+      "IsVisible": false,
+      "AvatarID": 1403,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/8007.png",
+      "ID": 208007,
+      "IsVisible": false,
+      "AvatarID": 8007,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1404.png",
+      "ID": 201404,
+      "IsVisible": false,
+      "AvatarID": 1404,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/8008.png",
+      "ID": 208008,
+      "IsVisible": false,
+      "AvatarID": 8008,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1407.png",
+      "ID": 201407,
+      "IsVisible": false,
+      "AvatarID": 1407,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1408.png",
+      "ID": 201408,
+      "IsVisible": false,
+      "AvatarID": 1408,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1405.png",
+      "ID": 201405,
+      "IsVisible": false,
+      "AvatarID": 1405,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1409.png",
+      "ID": 201409,
+      "IsVisible": false,
+      "AvatarID": 1409,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1412.png",
+      "ID": 201412,
+      "IsVisible": false,
+      "AvatarID": 1412,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1406.png",
+      "ID": 201406,
+      "IsVisible": false,
+      "AvatarID": 1406,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1410.png",
+      "ID": 201410,
+      "IsVisible": false,
+      "AvatarID": 1410,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1414.png",
+      "ID": 201414,
+      "IsVisible": false,
+      "AvatarID": 1414,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1413.png",
+      "ID": 201413,
+      "IsVisible": false,
+      "AvatarID": 1413,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1014.png",
+      "ID": 201014,
+      "IsVisible": false,
+      "AvatarID": 1014,
+      "SortType": 3
+    },
+    {
+      "ImagePath": "SpriteOutput/AvatarRoundIcon/Avatar/1015.png",
+      "ID": 201015,
+      "IsVisible": false,
+      "AvatarID": 1015,
+      "SortType": 3
+    }
+  ]
+}

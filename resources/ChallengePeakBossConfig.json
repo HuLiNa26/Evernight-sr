@@ -1,0 +1,26 @@
+{
+  "challenge_peak_boss_config": [
+    {
+      "ID": 104,
+      "HardTitle": {
+        "Hash": -829434279,
+        "Hash64": 7760170859122248016
+      },
+      "BuffList": [
+        3033006,
+        3033007,
+        3033008
+      ],
+      "ColorMedalTarget": 6,
+      "HardTarget": 3007,
+      "HardEventIDList": [
+        30501022
+      ],
+      "HardTagList": [
+        3033014,
+        3033013,
+        3033019
+      ]
+    }
+  ]
+}

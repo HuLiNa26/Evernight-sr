@@ -1,0 +1,2595 @@
+{
+  "activity_config": [
+    {
+      "ActivityModuleIDList": [
+        1001201
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10012,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1001402,
+        1001401
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10014,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10014
+    },
+    {
+      "ActivityModuleIDList": [],
+      "ResidentModuleList": [
+        1001501
+      ],
+      "ActivityID": 10015,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10015
+    },
+    {
+      "ActivityModuleIDList": [],
+      "ResidentModuleList": [
+        1001601
+      ],
+      "ActivityID": 10016,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10016
+    },
+    {
+      "ActivityModuleIDList": [],
+      "ResidentModuleList": [
+        1001701
+      ],
+      "ActivityID": 10017,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10017
+    },
+    {
+      "ActivityModuleIDList": [
+        1001801,
+        1001802
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10018,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10018
+    },
+    {
+      "ActivityModuleIDList": [],
+      "ResidentModuleList": [
+        1001901
+      ],
+      "ActivityID": 10019,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10019
+    },
+    {
+      "ActivityModuleIDList": [
+        1002001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10020,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10020
+    },
+    {
+      "ActivityModuleIDList": [
+        1002101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10021,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10021
+    },
+    {
+      "ActivityModuleIDList": [
+        1002301
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10023,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10023
+    },
+    {
+      "ActivityModuleIDList": [
+        1002401
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10024,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10024
+    },
+    {
+      "ActivityModuleIDList": [],
+      "ResidentModuleList": [
+        1002501
+      ],
+      "ActivityID": 10025,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10025
+    },
+    {
+      "ActivityModuleIDList": [
+        1002601,
+        1002602
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10026,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10026
+    },
+    {
+      "ActivityModuleIDList": [
+        1002601,
+        1002602
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10027,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10026
+    },
+    {
+      "ActivityModuleIDList": [
+        1002801
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10028,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10028
+    },
+    {
+      "ActivityModuleIDList": [
+        1002101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10029,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10021
+    },
+    {
+      "ActivityModuleIDList": [
+        1003001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10030,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1002001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10031,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10020
+    },
+    {
+      "ActivityModuleIDList": [
+        1003201
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10032,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10032
+    },
+    {
+      "ActivityModuleIDList": [
+        1002601,
+        1002602
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10033,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10026
+    },
+    {
+      "ActivityModuleIDList": [
+        1003401
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10034,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1003601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10036,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1004201
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10042,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1003501
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10035,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10035
+    },
+    {
+      "ActivityModuleIDList": [
+        1002001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10037,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10020
+    },
+    {
+      "ActivityModuleIDList": [
+        1002601,
+        1002602
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10038,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10026
+    },
+    {
+      "ActivityModuleIDList": [
+        1003901
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10039,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10039
+    },
+    {
+      "ActivityModuleIDList": [
+        1004001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10040,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10040
+    },
+    {
+      "ActivityModuleIDList": [],
+      "ResidentModuleList": [
+        1004101
+      ],
+      "ActivityID": 10041,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10041
+    },
+    {
+      "ActivityModuleIDList": [
+        1002101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10043,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10021
+    },
+    {
+      "ActivityModuleIDList": [
+        1002601,
+        1002602
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10044,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10026
+    },
+    {
+      "ActivityModuleIDList": [
+        1004501
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10045,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10043
+    },
+    {
+      "ActivityModuleIDList": [
+        1005401
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10054,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1004601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10046,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1005501
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10055,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1004701
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10047,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10047
+    },
+    {
+      "ActivityModuleIDList": [
+        1004801
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10048,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10048
+    },
+    {
+      "ActivityModuleIDList": [
+        1002001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10049,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10020
+    },
+    {
+      "ActivityModuleIDList": [
+        1002601,
+        1002602,
+        1002603
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10050,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10026
+    },
+    {
+      "ActivityModuleIDList": [
+        1005101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10051,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10051
+    },
+    {
+      "ActivityModuleIDList": [
+        1005201
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10052,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10052
+    },
+    {
+      "ActivityModuleIDList": [
+        1005301
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10053,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10053
+    },
+    {
+      "ActivityModuleIDList": [
+        1005601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10056,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10056
+    },
+    {
+      "ActivityModuleIDList": [
+        1005701
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10057,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10057
+    },
+    {
+      "ActivityModuleIDList": [
+        1005801
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10058,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10058
+    },
+    {
+      "ActivityModuleIDList": [
+        1005901
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10059,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10059
+    },
+    {
+      "ActivityModuleIDList": [
+        1006001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10060,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10060
+    },
+    {
+      "ActivityModuleIDList": [
+        1002001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10061,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10020
+    },
+    {
+      "ActivityModuleIDList": [
+        1002601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10062,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10026
+    },
+    {
+      "ActivityModuleIDList": [
+        1006301
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10063,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1002101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10064,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10021
+    },
+    {
+      "ActivityModuleIDList": [
+        1002601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10065,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10026
+    },
+    {
+      "ActivityModuleIDList": [],
+      "ResidentModuleList": [
+        1006201
+      ],
+      "ActivityID": 10066,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10062
+    },
+    {
+      "ActivityModuleIDList": [
+        1006701
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10067,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [],
+      "ResidentModuleList": [
+        1006801
+      ],
+      "ActivityID": 10068,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10068
+    },
+    {
+      "ActivityModuleIDList": [
+        1006901
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10069,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1002001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10070,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10020
+    },
+    {
+      "ActivityModuleIDList": [
+        1002601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10071,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10026
+    },
+    {
+      "ActivityModuleIDList": [
+        1007201
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10072,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10072
+    },
+    {
+      "ActivityModuleIDList": [
+        1002101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10073,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10021
+    },
+    {
+      "ActivityModuleIDList": [
+        1002601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10074,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10026
+    },
+    {
+      "ActivityModuleIDList": [
+        1007501
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10075,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1002001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10077,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1002601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10078,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1007901
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10079,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1008001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10080,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10080
+    },
+    {
+      "ActivityModuleIDList": [
+        1008001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10081,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10081
+    },
+    {
+      "ActivityModuleIDList": [
+        1002101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10082,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10021
+    },
+    {
+      "ActivityModuleIDList": [
+        1002601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10083,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10026
+    },
+    {
+      "ActivityModuleIDList": [
+        1008401
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10084,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1008601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10086,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1002001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10087,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10020
+    },
+    {
+      "ActivityModuleIDList": [
+        1002601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10088,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10026
+    },
+    {
+      "ActivityModuleIDList": [
+        1008001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10089,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10089
+    },
+    {
+      "ActivityModuleIDList": [
+        1009001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10090,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1002101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10091,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10021
+    },
+    {
+      "ActivityModuleIDList": [
+        1002601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10092,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10026
+    },
+    {
+      "ActivityModuleIDList": [
+        1010101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10101,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1010301
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10103,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1010401
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10104,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1010601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10106,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1008001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10107,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10107
+    },
+    {
+      "ActivityModuleIDList": [
+        1010801
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10108,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10108
+    },
+    {
+      "ActivityModuleIDList": [
+        1002601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10109,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10026
+    },
+    {
+      "ActivityModuleIDList": [
+        1011201
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10112,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1002101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10113,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10113
+    },
+    {
+      "ActivityModuleIDList": [
+        1002601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10114,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10026
+    },
+    {
+      "ActivityModuleIDList": [
+        1010801
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10115,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10108
+    },
+    {
+      "ActivityModuleIDList": [
+        1011601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10116,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1002601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10117,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10026
+    },
+    {
+      "ActivityModuleIDList": [
+        1012201
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10122,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        1002101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10123,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10113
+    },
+    {
+      "ActivityModuleIDList": [
+        1002601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 10124,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10026
+    },
+    {
+      "ActivityModuleIDList": [
+        2000101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20001,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20001
+    },
+    {
+      "ActivityModuleIDList": [
+        2000202
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20002,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20002
+    },
+    {
+      "ActivityModuleIDList": [
+        2000401
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20004,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20003
+    },
+    {
+      "ActivityModuleIDList": [
+        2000501,
+        2000502,
+        2000503,
+        2000504,
+        2000505
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20005,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20005
+    },
+    {
+      "ActivityModuleIDList": [
+        2000601,
+        2000602,
+        2000603,
+        2000604,
+        2000605
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20006,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20006
+    },
+    {
+      "ActivityModuleIDList": [
+        2000501,
+        2000604,
+        2000601,
+        2000701
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20007,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20007
+    },
+    {
+      "ActivityModuleIDList": [
+        2000801,
+        2000802,
+        2000803,
+        2000804,
+        2000805
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20008,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20008
+    },
+    {
+      "ActivityModuleIDList": [
+        2000901,
+        2000902,
+        2000903,
+        2000504,
+        2000905
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20009,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20009
+    },
+    {
+      "ActivityModuleIDList": [
+        2001001,
+        2000901,
+        2000801,
+        2000902
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20010,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20010
+    },
+    {
+      "ActivityModuleIDList": [],
+      "ResidentModuleList": [
+        2001101,
+        2001102,
+        2001103,
+        2001104,
+        2001105,
+        2001106,
+        2001107,
+        2001108,
+        2001109
+      ],
+      "ActivityID": 20011,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        2001201,
+        2000604,
+        2000503,
+        2001202,
+        2001203
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20012,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20011
+    },
+    {
+      "ActivityModuleIDList": [
+        2001301,
+        2001302,
+        2001303,
+        2000602,
+        2001304
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20013,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20012
+    },
+    {
+      "ActivityModuleIDList": [
+        2001201,
+        2001301,
+        2001302,
+        2001401
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20014,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20013
+    },
+    {
+      "ActivityModuleIDList": [
+        2001601,
+        2001602,
+        2000603,
+        2000903,
+        2001603
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20016,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20016
+    },
+    {
+      "ActivityModuleIDList": [
+        2001701,
+        2001702,
+        2001703,
+        2000902,
+        2000804,
+        2001704
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20017,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20017
+    },
+    {
+      "ActivityModuleIDList": [
+        2001701,
+        2001601,
+        2001703,
+        2001801
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20018,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20018
+    },
+    {
+      "ActivityModuleIDList": [
+        2001901,
+        2001902,
+        2000502,
+        2000802,
+        2000504
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20019,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20019
+    },
+    {
+      "ActivityModuleIDList": [
+        2002001,
+        2002002,
+        2000501,
+        2002003,
+        2001302,
+        2000503
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20020,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20020
+    },
+    {
+      "ActivityModuleIDList": [
+        2002101,
+        2001902,
+        2002002,
+        2002003
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20021,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20021
+    },
+    {
+      "ActivityModuleIDList": [
+        2002201,
+        2002202,
+        2000801,
+        2002303,
+        2001202,
+        2001602
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20022,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20022
+    },
+    {
+      "ActivityModuleIDList": [
+        2002301,
+        2002302,
+        2000901,
+        2000804,
+        2000803,
+        2001303
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20023,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20023
+    },
+    {
+      "ActivityModuleIDList": [
+        2002401,
+        2002202,
+        2002302,
+        2002303
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20024,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20024
+    },
+    {
+      "ActivityModuleIDList": [
+        2002700,
+        2002501,
+        2002502,
+        2002601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20027,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20027
+    },
+    {
+      "ActivityModuleIDList": [
+        2003000,
+        2002801,
+        2002901,
+        2002803
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20030,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20030
+    },
+    {
+      "ActivityModuleIDList": [
+        2003300,
+        2003101,
+        2003201
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20033,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20033
+    },
+    {
+      "ActivityModuleIDList": [
+        2003600,
+        2003401,
+        2003501
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20036,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20036
+    },
+    {
+      "ActivityModuleIDList": [
+        2003900,
+        2003701,
+        2003801
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20039,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20039
+    },
+    {
+      "ActivityModuleIDList": [
+        2004200,
+        2004001,
+        2004101,
+        2004002
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20042,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20042
+    },
+    {
+      "ActivityModuleIDList": [
+        2004401
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20046,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20046
+    },
+    {
+      "ActivityModuleIDList": [
+        2004701,
+        2004801
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20049,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20049
+    },
+    {
+      "ActivityModuleIDList": [
+        2005001,
+        2005101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20052,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20052
+    },
+    {
+      "ActivityModuleIDList": [
+        2008007
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20053,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        2005401,
+        2005501
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 20056,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 20056
+    },
+    {
+      "ActivityModuleIDList": [
+        2100101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 21001,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 21001
+    },
+    {
+      "ActivityModuleIDList": [
+        2100201
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 21002,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 21001
+    },
+    {
+      "ActivityModuleIDList": [
+        3000201
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 30002,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 30002
+    },
+    {
+      "ActivityModuleIDList": [
+        3000206
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 30003,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        4000101,
+        4000102,
+        4000103,
+        4000104,
+        4000105,
+        4000106,
+        4000107,
+        4000108,
+        4000109,
+        4000110
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 40001,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 40001
+    },
+    {
+      "ActivityModuleIDList": [
+        4000201,
+        4000202,
+        4000203,
+        4000204,
+        4000205,
+        4000206,
+        4000207
+      ],
+      "ResidentModuleList": [
+        4000208
+      ],
+      "ActivityID": 40002,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 40002
+    },
+    {
+      "ActivityModuleIDList": [
+        4000308
+      ],
+      "ResidentModuleList": [
+        4000301,
+        4000302,
+        4000303,
+        4000304,
+        4000305,
+        4000306,
+        4000307
+      ],
+      "ActivityID": 40003,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 40003
+    },
+    {
+      "ActivityModuleIDList": [
+        4000401,
+        4000402,
+        4000403,
+        4000404,
+        4000405
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 40004,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 40004
+    },
+    {
+      "ActivityModuleIDList": [
+        4000501,
+        4000502,
+        4000503,
+        4000504,
+        4000505
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 40005,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 40005
+    },
+    {
+      "ActivityModuleIDList": [
+        5000001,
+        5000012
+      ],
+      "ResidentModuleList": [
+        5000002,
+        5000003,
+        5000004,
+        5000005,
+        5000006,
+        5000007,
+        5000008,
+        5000009,
+        5000010,
+        5000011,
+        5000013
+      ],
+      "ActivityID": 50000,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50000
+    },
+    {
+      "ActivityModuleIDList": [
+        5000101,
+        5000102,
+        5000103,
+        5000104,
+        5000108,
+        5000109
+      ],
+      "ResidentModuleList": [
+        5000105,
+        5000106,
+        5000107
+      ],
+      "ActivityID": 50001,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50001
+    },
+    {
+      "ActivityModuleIDList": [
+        5000210,
+        5000211
+      ],
+      "ResidentModuleList": [
+        5000201,
+        5000202,
+        5000203,
+        5000204
+      ],
+      "ActivityID": 50002,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50002
+    },
+    {
+      "ActivityModuleIDList": [
+        3000401,
+        3000402,
+        3000403,
+        3000404,
+        3000405,
+        3000406,
+        3000407,
+        3000408
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 30004,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 30004
+    },
+    {
+      "ActivityModuleIDList": [
+        3000501,
+        3000502,
+        3000503,
+        3000504,
+        3000505,
+        3000506,
+        3000507,
+        3000508
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 30005,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        3000601,
+        3000602,
+        3000603,
+        3000604,
+        3000605,
+        3000606,
+        3000607
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 30006,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 30006
+    },
+    {
+      "ActivityModuleIDList": [
+        3000701,
+        3000702,
+        3000703,
+        3000704,
+        3000705,
+        3000706,
+        3000707
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 30007,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 30007
+    },
+    {
+      "ActivityModuleIDList": [],
+      "ResidentModuleList": [
+        6000101
+      ],
+      "ActivityID": 60001,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 60001
+    },
+    {
+      "ActivityModuleIDList": [],
+      "ResidentModuleList": [
+        6000302
+      ],
+      "ActivityID": 60003,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        6000401
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 60004,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 60004
+    },
+    {
+      "ActivityModuleIDList": [
+        6000501
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 60005,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 60005
+    },
+    {
+      "ActivityModuleIDList": [
+        6000601,
+        6000602,
+        6000603,
+        6000604,
+        6000605,
+        6000606
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 60006,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 60006
+    },
+    {
+      "ActivityModuleIDList": [
+        6000701
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 60007,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 60003
+    },
+    {
+      "ActivityModuleIDList": [
+        6000801
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 60008,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 60007
+    },
+    {
+      "ActivityModuleIDList": [],
+      "ResidentModuleList": [
+        6000901
+      ],
+      "ActivityID": 60009,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        6001001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 60010,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 60008
+    },
+    {
+      "ActivityModuleIDList": [
+        6001101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 60011,
+      "EarlyAccessContentID": 200002,
+      "ActivityPanelID": 60011
+    },
+    {
+      "ActivityModuleIDList": [
+        6001201
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 60012,
+      "EarlyAccessContentID": 200002,
+      "ActivityPanelID": 60011
+    },
+    {
+      "ActivityModuleIDList": [
+        6001301
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 60013,
+      "EarlyAccessContentID": 200002,
+      "ActivityPanelID": 60011
+    },
+    {
+      "ActivityModuleIDList": [
+        6001401
+      ],
+      "ResidentModuleList": [
+        6001402
+      ],
+      "ActivityID": 60014,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        6001501
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 60015,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 60016
+    },
+    {
+      "ActivityModuleIDList": [],
+      "ResidentModuleList": [
+        6001601
+      ],
+      "ActivityID": 60016,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        6001701
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 60017,
+      "EarlyAccessContentID": 200002,
+      "ActivityPanelID": 60017
+    },
+    {
+      "ActivityModuleIDList": [
+        6001801
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 60018,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        6001901
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 60019,
+      "EarlyAccessContentID": 200002,
+      "ActivityPanelID": 60017
+    },
+    {
+      "ActivityModuleIDList": [
+        6002001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 60020,
+      "EarlyAccessContentID": 200002,
+      "ActivityPanelID": 60017
+    },
+    {
+      "ActivityModuleIDList": [
+        7000101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 70001,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        7000101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 70002,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        7000101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 70003,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        7000101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 70004,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        7000101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 70005,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        7000101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 70006,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        9990101,
+        9990102
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 99901,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        5000300,
+        5000305
+      ],
+      "ResidentModuleList": [
+        5000301,
+        5000302,
+        5000303,
+        5000304
+      ],
+      "ActivityID": 50003,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50003
+    },
+    {
+      "ActivityModuleIDList": [
+        2200101,
+        2200102
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 22001,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        2200201,
+        2200202
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 22002,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        2200201
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 22003,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        2200301,
+        2200401
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 22004,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        2200301,
+        2200501,
+        2200401
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 22005,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        2200301,
+        2200601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 22006,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        2200301,
+        2200701
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 22007,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        2200301,
+        2200801
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 22008,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        5000401,
+        5000402,
+        5000403,
+        5000404,
+        5000405,
+        5000406
+      ],
+      "ResidentModuleList": [
+        5000408
+      ],
+      "ActivityID": 50004,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50004
+    },
+    {
+      "ActivityModuleIDList": [
+        8000101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 80001,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        8000201
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 80002,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        8000301
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 80003,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        8000401
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 80004,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        8000501
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 80005,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        8000601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 80006,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        8000701
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 80007,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        8000801
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 80008,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        8000901
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 80009,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        8001001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 80010,
+      "EarlyAccessContentID": 200003,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        8001101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 80011,
+      "EarlyAccessContentID": 200003,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        8001201
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 80012,
+      "EarlyAccessContentID": 200004,
+      "ActivityPanelID": 80012
+    },
+    {
+      "ActivityModuleIDList": [
+        8001501
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 80015,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 80015
+    },
+    {
+      "ActivityModuleIDList": [
+        5000500,
+        5000506
+      ],
+      "ResidentModuleList": [
+        5000501,
+        5000502,
+        5000503,
+        5000504,
+        5000505
+      ],
+      "ActivityID": 50005,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50005
+    },
+    {
+      "ActivityModuleIDList": [
+        5000606
+      ],
+      "ResidentModuleList": [
+        5000601,
+        5000602,
+        5000603,
+        5000604,
+        5000605
+      ],
+      "ActivityID": 50006,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50006
+    },
+    {
+      "ActivityModuleIDList": [
+        3000800
+      ],
+      "ResidentModuleList": [
+        3000801
+      ],
+      "ActivityID": 30008,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 30008
+    },
+    {
+      "ActivityModuleIDList": [
+        3000901,
+        3000902,
+        3000903,
+        3000904,
+        3000905,
+        3000906,
+        3000907
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 30009,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        5000701
+      ],
+      "ResidentModuleList": [
+        5000702
+      ],
+      "ActivityID": 50007,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50007
+    },
+    {
+      "ActivityModuleIDList": [
+        3001001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 30010,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 30010
+    },
+    {
+      "ActivityModuleIDList": [
+        5000801,
+        5000802,
+        5000803,
+        5000804
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50008,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50008
+    },
+    {
+      "ActivityModuleIDList": [
+        5000901
+      ],
+      "ResidentModuleList": [
+        5000902
+      ],
+      "ActivityID": 50009,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50009
+    },
+    {
+      "ActivityModuleIDList": [
+        5001001,
+        5001002,
+        5001003,
+        5001004,
+        5001005,
+        5001006
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50010,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50010
+    },
+    {
+      "ActivityModuleIDList": [
+        5001101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50011,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50011
+    },
+    {
+      "ActivityModuleIDList": [
+        5001201
+      ],
+      "ResidentModuleList": [
+        5001202
+      ],
+      "ActivityID": 50012,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50012
+    },
+    {
+      "ActivityModuleIDList": [
+        5001301,
+        5001302
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50013,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50013
+    },
+    {
+      "ActivityModuleIDList": [
+        5001400
+      ],
+      "ResidentModuleList": [
+        5001401
+      ],
+      "ActivityID": 50014,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50014
+    },
+    {
+      "ActivityModuleIDList": [
+        5001500
+      ],
+      "ResidentModuleList": [
+        5001501
+      ],
+      "ActivityID": 50015,
+      "EarlyAccessContentID": 150015,
+      "ActivityPanelID": 50015
+    },
+    {
+      "ActivityModuleIDList": [
+        5001601,
+        5001602,
+        5001603,
+        5001604,
+        5001605,
+        5001606,
+        5001607,
+        5001608
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50016,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50016
+    },
+    {
+      "ActivityModuleIDList": [
+        5001701,
+        5001705,
+        5001703,
+        5001706,
+        5001704,
+        5001702
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50017,
+      "EarlyAccessContentID": 150017,
+      "ActivityPanelID": 50017
+    },
+    {
+      "ActivityModuleIDList": [
+        5001801
+      ],
+      "ResidentModuleList": [
+        5001802
+      ],
+      "ActivityID": 50018,
+      "EarlyAccessContentID": 150018,
+      "ActivityPanelID": 50018
+    },
+    {
+      "ActivityModuleIDList": [
+        5001901
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50019,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10043
+    },
+    {
+      "ActivityModuleIDList": [
+        5002001,
+        5002002,
+        5002003,
+        5002004,
+        5002005
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50020,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50020
+    },
+    {
+      "ActivityModuleIDList": [
+        5002101
+      ],
+      "ResidentModuleList": [
+        5002102
+      ],
+      "ActivityID": 50021,
+      "EarlyAccessContentID": 150021,
+      "ActivityPanelID": 50021
+    },
+    {
+      "ActivityModuleIDList": [
+        5002201
+      ],
+      "ResidentModuleList": [
+        5002202
+      ],
+      "ActivityID": 50022,
+      "EarlyAccessContentID": 130013,
+      "ActivityPanelID": 50022
+    },
+    {
+      "ActivityModuleIDList": [
+        5002301
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50023,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10043
+    },
+    {
+      "ActivityModuleIDList": [
+        5002401
+      ],
+      "ResidentModuleList": [
+        5002402
+      ],
+      "ActivityID": 50024,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50024
+    },
+    {
+      "ActivityModuleIDList": [
+        5002501,
+        5002502,
+        5002503,
+        5002504,
+        5002505,
+        5002506,
+        5002507
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50025,
+      "EarlyAccessContentID": 150025,
+      "ActivityPanelID": 50025
+    },
+    {
+      "ActivityModuleIDList": [
+        3001101,
+        3001102,
+        3001103,
+        3001104,
+        3001105,
+        3001106,
+        3001107
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 30011,
+      "EarlyAccessContentID": 130011,
+      "ActivityPanelID": 30011
+    },
+    {
+      "ActivityModuleIDList": [
+        3001201,
+        3001202
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 30012,
+      "EarlyAccessContentID": 130012,
+      "ActivityPanelID": 30012
+    },
+    {
+      "ActivityModuleIDList": [
+        3001301
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 30013,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 30013
+    },
+    {
+      "ActivityModuleIDList": [
+        5002601
+      ],
+      "ResidentModuleList": [
+        5002602
+      ],
+      "ActivityID": 50026,
+      "EarlyAccessContentID": 150026,
+      "ActivityPanelID": 50026
+    },
+    {
+      "ActivityModuleIDList": [
+        4000603,
+        4000602,
+        4000601,
+        4000604,
+        4000605
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 40006,
+      "EarlyAccessContentID": 140006,
+      "ActivityPanelID": 40006
+    },
+    {
+      "ActivityModuleIDList": [
+        5002701
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50027,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10043
+    },
+    {
+      "ActivityModuleIDList": [
+        5002801,
+        5002802,
+        5002803
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50028,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50028
+    },
+    {
+      "ActivityModuleIDList": [
+        3001401,
+        3001402,
+        3001403,
+        3001404,
+        3001405,
+        3001406,
+        3001407
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 30014,
+      "EarlyAccessContentID": 130014,
+      "ActivityPanelID": 30014
+    },
+    {
+      "ActivityModuleIDList": [
+        5002900,
+        5002901
+      ],
+      "ResidentModuleList": [
+        5002902
+      ],
+      "ActivityID": 50029,
+      "EarlyAccessContentID": 150029,
+      "ActivityPanelID": 50029
+    },
+    {
+      "ActivityModuleIDList": [
+        5003001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50030,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10043
+    },
+    {
+      "ActivityModuleIDList": [
+        5003101
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50031,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        5003301,
+        5003302,
+        5003303,
+        5003304,
+        5003305,
+        5003306,
+        5003307
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50033,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50033
+    },
+    {
+      "ActivityModuleIDList": [
+        9999800,
+        2001702,
+        2001703,
+        2001601,
+        2001701
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 99998,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        9999901,
+        9999902,
+        9999903
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 99999,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        5003401
+      ],
+      "ResidentModuleList": [
+        5003402
+      ],
+      "ActivityID": 50034,
+      "EarlyAccessContentID": 150034,
+      "ActivityPanelID": 50034
+    },
+    {
+      "ActivityModuleIDList": [
+        5003501
+      ],
+      "ResidentModuleList": [
+        5003502
+      ],
+      "ActivityID": 50035,
+      "EarlyAccessContentID": 150035,
+      "ActivityPanelID": 50035
+    },
+    {
+      "ActivityModuleIDList": [
+        5003601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50036,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        5003701
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50037,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        5003801
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50038,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        5003901
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50039,
+      "EarlyAccessContentID": 150039,
+      "ActivityPanelID": 50039
+    },
+    {
+      "ActivityModuleIDList": [
+        5004001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50040,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10043
+    },
+    {
+      "ActivityModuleIDList": [
+        5004100,
+        5004101
+      ],
+      "ResidentModuleList": [
+        5004102
+      ],
+      "ActivityID": 50041,
+      "EarlyAccessContentID": 150041,
+      "ActivityPanelID": 50041
+    },
+    {
+      "ActivityModuleIDList": [
+        5004201
+      ],
+      "ResidentModuleList": [
+        5004202
+      ],
+      "ActivityID": 50042,
+      "EarlyAccessContentID": 150042,
+      "ActivityPanelID": 50042
+    },
+    {
+      "ActivityModuleIDList": [
+        5004301
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50043,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        5004501
+      ],
+      "ResidentModuleList": [
+        5004502
+      ],
+      "ActivityID": 50045,
+      "EarlyAccessContentID": 150045,
+      "ActivityPanelID": 50045
+    },
+    {
+      "ActivityModuleIDList": [
+        5004701
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50047,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50047
+    },
+    {
+      "ActivityModuleIDList": [
+        5005701
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50057,
+      "EarlyAccessContentID": 150057,
+      "ActivityPanelID": 50057
+    },
+    {
+      "ActivityModuleIDList": [
+        5005801
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50058,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 10043
+    },
+    {
+      "ActivityModuleIDList": [
+        5006001
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50060,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        5006201,
+        5006202
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50062,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 50062
+    },
+    {
+      "ActivityModuleIDList": [
+        5006301
+      ],
+      "ResidentModuleList": [
+        5006302
+      ],
+      "ActivityID": 50063,
+      "EarlyAccessContentID": 150063,
+      "ActivityPanelID": 50063
+    },
+    {
+      "ActivityModuleIDList": [
+        5006401
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50064,
+      "EarlyAccessContentID": 150064,
+      "ActivityPanelID": 50064
+    },
+    {
+      "ActivityModuleIDList": [
+        5006601
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50066,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    },
+    {
+      "ActivityModuleIDList": [
+        5006701
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50067,
+      "EarlyAccessContentID": 150067,
+      "ActivityPanelID": 50067
+    },
+    {
+      "ActivityModuleIDList": [
+        5006901
+      ],
+      "ResidentModuleList": [],
+      "ActivityID": 50069,
+      "EarlyAccessContentID": 0,
+      "ActivityPanelID": 0
+    }
+  ]
+}

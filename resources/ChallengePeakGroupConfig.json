@@ -1,0 +1,31 @@
+{
+  "challenge_peak_group_config": [
+    {
+      "ID": 1,
+      "Title": {
+        "Hash": -504960136,
+        "Hash64": 3550232802813737810
+      },
+      "ActivityModule": 2100101,
+      "PreLevelIDList": [
+        101,
+        102,
+        103
+      ],
+      "BossLevelID": 104,
+      "RewardGroupID": 1,
+      "MapEntranceID": 3000205,
+      "MapEntranceBoss": 3000203,
+      "BossUI3DPrefabPath": "UI/UI3D/ChallengePeak/_dependencies/Prefab/ChallengePeakBoss_W4_Theoroi.prefab",
+      "ThemePosterTabPicPath": "SpriteOutput/Quest/TabIcon/BtnChallengePeak_4001.png",
+      "ThemeIconPicPath": "SpriteOutput/ChallengePeak/ChallengePeakIcon_4001.png",
+      "ThemeToastPicPath": "SpriteOutput/ChallengeTheme/ThemePic/ChallengeThemePic_2001.png",
+      "RankIconPathList": [
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0001/Bronze.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0001/Silver.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0001/Gold.png",
+        "SpriteOutput/ChallengePeak/MedallionIcon/ChallengePeakMedalIcon0001/Ultra.png"
+      ]
+    }
+  ]
+}
