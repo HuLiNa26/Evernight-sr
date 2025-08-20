@@ -10,7 +10,7 @@
 
 ### Setup launcher.exe
 
-Copy and paste launcher.exe and hkprg.dll from [launcher folder](https://git.xeondev.com/HonkaiSlopRail/evernight-sr/src/branch/master/launcher) inside evernight-sr to `client folder`.
+Copy and paste launcher.exe and hkprg.dll from [launcher folder](https://github.com/HuLiNa26/Evernight-sr/tree/main/launcher) inside evernight-sr to `client folder`.
 
 ### From source
 
@@ -24,7 +24,7 @@ zig build run-gameserver
 Then open your `launcher.exe` with administrator.
 
 ### Using Pre-built Binaries
-Navigate to the [Releases](https://git.xeondev.com/HonkaiSlopRail/evernight-sr/releases)
+Navigate to the [Releases](https://github.com/HuLiNa26/Evernight-sr/releases/tag/1.2.0)
 page and download the latest release for your platform.
 
 ## Connecting
@@ -49,4 +49,5 @@ can, please include steps to reproduce the bug.
 
 Bad issues such as "This doesn't work" will be closed immediately, be _sure_ to
 provide exact detailed steps to reproduce your bug. If it's hard to reproduce, try
+
 to explain it and write a reproducer as best as you can.
