@@ -1,32 +1,81 @@
 const commandhandler = @import("../command.zig");
 const std = @import("std");
 const Session = @import("../Session.zig");
-const Config = @import("../services/config.zig");
+const Config = @import("../data/stage_config.zig");
+const ConfigManager = @import("../manager/config_mgr.zig");
+const LineupManager = @import("../manager/lineup_mgr.zig");
+const AvatatarManager = @import("../manager/avatar_mgr.zig");
+const Logic = @import("../utils/logic.zig");
 
 const Allocator = std.mem.Allocator;
-
-pub var challenge_node: u32 = 0;
-pub var StandardBanner = [_]u32{ 1003, 1004, 1101, 1104, 1209, 1211 };
-pub var RateUp = [_]u32{1413};
-pub var RateUpFourStars = [_]u32{ 1210, 1108, 1207 };
-
-pub var selected_challenge_id: u32 = 0;
-pub var selected_buff_id: u32 = 0;
-
-pub var custom_mode: bool = false;
+const ArrayList = std.ArrayList;
 
 pub fn handle(session: *Session, _: []const u8, allocator: Allocator) !void {
     try commandhandler.sendMessage(session, "Test Command for Chat\n", allocator);
 }
 pub fn challengeNode(session: *Session, _: []const u8, allocator: Allocator) !void {
-    if (challenge_node == 0) {
-        try commandhandler.sendMessage(session, "Change Challenge Node 2 \n", allocator);
-        challenge_node = challenge_node + 1;
+    try commandhandler.sendMessage(session, Logic.CustomMode().ChangeNode(), allocator);
+}
+pub fn FunMode(session: *Session, input: []const u8, allocator: Allocator) !void {
+    var args = std.mem.tokenizeAny(u8, input, " ");
+    if (args.next()) |subcmd| {
+        if (std.mem.eql(u8, subcmd, "on")) {
+            Logic.FunMode().SetFunMode(true);
+            const config = &ConfigManager.global_game_config_cache.game_config;
+            var ids = std.ArrayList(u32).init(allocator);
+            defer ids.deinit();
+            var picked_mc = false;
+            var picked_m7th = false;
+            for (config.avatar_config.items) |avatarConf| {
+                const id = switch (avatarConf.id) {
+                    8001...8008 => if (!picked_mc) blk: {
+                        picked_mc = true;
+                        break :blk AvatatarManager.mc_id;
+                    } else continue,
+                    1224, 1001 => if (!picked_m7th) blk: {
+                        picked_m7th = true;
+                        break :blk AvatatarManager.m7th;
+                    } else continue,
+                    else => avatarConf.id,
+                };
+                try ids.append(id);
+            }
+            try LineupManager.getFunModeAvatarID(ids.items);
+            try commandhandler.sendMessage(session, "Fun mode ON\n", allocator);
+        } else if (std.mem.eql(u8, subcmd, "off")) {
+            Logic.FunMode().SetFunMode(false);
+            try commandhandler.sendMessage(session, "Fun mode OFF\n", allocator);
+        } else if (std.mem.eql(u8, subcmd, "hp")) {
+            if (args.next()) |hp_arg| {
+                if (std.mem.eql(u8, hp_arg, "max")) {
+                    Logic.FunMode().SetHp(std.math.maxInt(i32));
+                    try commandhandler.sendMessage(session, "Set HP = MAX (2,147,483,647)\n", allocator);
+                    try commandhandler.sendMessage(session, "Remember to set it back to 0 to use actual HP value\n", allocator);
+                } else {
+                    const parsed = try std.fmt.parseInt(i64, hp_arg, 10);
+                    if (parsed < 0 or parsed > std.math.maxInt(i32)) {
+                        try commandhandler.sendMessage(session, "Error: HP out of range (0 - 2147483647)\n", allocator);
+                    } else {
+                        Logic.FunMode().SetHp(@intCast(parsed));
+                        try commandhandler.sendMessage(
+                            session,
+                            try std.fmt.allocPrint(allocator, "Set HP = {d}\n", .{parsed}),
+                            allocator,
+                        );
+                        try commandhandler.sendMessage(session, "Remember to set it back to 0 to use actual HP value\n", allocator);
+                    }
+                }
+            } else {
+                try commandhandler.sendMessage(session, "Usage: /funmode hp <max|number>\n", allocator);
+            }
+        } else {
+            try commandhandler.sendMessage(session, "Unknown funmode subcommand\n", allocator);
+        }
     } else {
-        try commandhandler.sendMessage(session, "Change Challenge Node 1 \n", allocator);
-        challenge_node = challenge_node - 1;
+        try commandhandler.sendMessage(session, "Usage: /funmode <on|off|hp>\n", allocator);
     }
 }
+
 pub fn setGachaCommand(session: *Session, args: []const u8, allocator: Allocator) !void {
     var arg_iter = std.mem.splitSequence(u8, args, " ");
     const command = arg_iter.next() orelse {
@@ -73,7 +122,7 @@ fn standard(session: *Session, arg_iter: *std.mem.SplitIterator(u8, .sequence), 
     if (arg_iter.next() != null or count != 6) {
         return sendErrorMessage(session, "Error: You must provide exactly 6 avatar IDs.", allocator);
     }
-    @memcpy(&StandardBanner, &avatar_ids);
+    @memcpy(Logic.Banner().SetStandardBanner(), &avatar_ids);
     const msg = try std.fmt.allocPrint(allocator, "Set standard banner ID to: {d}, {d}, {d}, {d}, {d}, {d}", .{ avatar_ids[0], avatar_ids[1], avatar_ids[2], avatar_ids[3], avatar_ids[4], avatar_ids[5] });
     try commandhandler.sendMessage(session, msg, allocator);
 }
@@ -97,7 +146,7 @@ fn gacha4Stars(session: *Session, arg_iter: *std.mem.SplitIterator(u8, .sequence
     if (arg_iter.next() != null or count != 3) {
         return sendErrorMessage(session, "Error: You must provide exactly 3 avatar IDs.", allocator);
     }
-    @memcpy(&RateUpFourStars, &avatar_ids);
+    @memcpy(Logic.Banner().SetRateUpFourStar(), &avatar_ids);
     const msg = try std.fmt.allocPrint(allocator, "Set 4 star rate up ID to: {d}, {d}, {d}", .{ avatar_ids[0], avatar_ids[1], avatar_ids[2] });
     try commandhandler.sendMessage(session, msg, allocator);
 }
@@ -117,7 +166,7 @@ fn gacha5Stars(session: *Session, arg_iter: *std.mem.SplitIterator(u8, .sequence
     if (arg_iter.next() != null) {
         return sendErrorMessage(session, "Error: Only one rate-up avatar ID is allowed.", allocator);
     }
-    @memcpy(&RateUp, &avatar_ids);
+    @memcpy(Logic.Banner().SetRateUp(), &avatar_ids);
     const msg = try std.fmt.allocPrint(allocator, "Set rate up ID to: {d}", .{avatar_ids[0]});
     try commandhandler.sendMessage(session, msg, allocator);
 }
@@ -141,7 +190,7 @@ pub fn onBuffId(session: *Session, input: []const u8, allocator: Allocator) !voi
         return sendErrorMessage(session, "Error: Missing command arguments.", allocator);
     }
     if (std.ascii.eqlIgnoreCase(tokens.items[0], "off")) {
-        custom_mode = false;
+        Logic.CustomMode().SetCustomMode(false);
         _ = try commandhandler.sendMessage(session, "Custom mode OFF.", allocator);
         return;
     }
@@ -154,7 +203,7 @@ pub fn onBuffId(session: *Session, input: []const u8, allocator: Allocator) !voi
     if (!std.ascii.eqlIgnoreCase(tokens.items[3], "node")) return sendErrorMessage(session, "Error: Expected 'node' keyword.", allocator);
     const node = std.fmt.parseInt(u8, tokens.items[4], 10) catch return sendErrorMessage(session, "Error: Invalid node number.", allocator);
     if (node != 1 and node != 2) return sendErrorMessage(session, "Error: Node must be 1 or 2.", allocator);
-    challenge_node = node - 1;
+    Logic.CustomMode().SelectCustomNode(node);
     const challenge_mode = switch (group_id / 1000) {
         1 => "MoC",
         2 => "PF",
@@ -162,8 +211,8 @@ pub fn onBuffId(session: *Session, input: []const u8, allocator: Allocator) !voi
         else => "Unknown",
     };
     try commandhandler.sendMessage(session, try std.fmt.allocPrint(allocator, "Challenge mode: {s}", .{challenge_mode}), allocator);
-    const challenge_config = try Config.loadChallengeConfig(allocator, "resources/ChallengeMazeConfig.json");
-    const stage_config = try Config.loadStageConfig(allocator, "resources/StageConfig.json");
+    const challenge_config = &ConfigManager.global_game_config_cache.challenge_maze_config;
+    const stage_config = &ConfigManager.global_game_config_cache.stage_config;
     const challenge_entry = for (challenge_config.challenge_config.items) |entry| {
         if (entry.group_id == group_id and entry.floor == floor)
             break entry;
@@ -222,12 +271,12 @@ pub fn onBuffId(session: *Session, input: []const u8, allocator: Allocator) !voi
 fn handleMoCSelectChallenge(session: *Session, allocator: Allocator, challenge_id: u32) !void {
     const line = try std.fmt.allocPrint(allocator, "Selected MoC Challenge ID: {d}", .{challenge_id});
     try commandhandler.sendMessage(session, line, allocator);
-    selected_challenge_id = challenge_id;
-    selected_buff_id = 0;
-    custom_mode = true;
+    Logic.CustomMode().SetCustomChallengeID(challenge_id);
+    Logic.CustomMode().SetCustomBuffID(0);
+    Logic.CustomMode().SetCustomMode(true);
 }
 fn handleBuffSetCommand(session: *Session, allocator: Allocator, group_id: u32, node: u8, buff_index: usize, challenge_id: u32) !void {
-    const buff_config = try Config.loadTextMapConfig(allocator, "resources/BuffInfoConfig.json");
+    const buff_config = &ConfigManager.global_game_config_cache.buff_info_config;
     for (buff_config.text_map_config.items) |entry| {
         if (entry.group_id == group_id) {
             const list = if (node == 1) &entry.buff_list1 else &entry.buff_list2;
@@ -237,9 +286,9 @@ fn handleBuffSetCommand(session: *Session, allocator: Allocator, group_id: u32, 
             const buff = list.items[buff_index - 1];
             const line = try std.fmt.allocPrint(allocator, "Selected Challenge ID: {d}, Buff ID: {d} - {s}", .{ challenge_id, buff.id, buff.name });
             try commandhandler.sendMessage(session, line, allocator);
-            selected_challenge_id = challenge_id;
-            selected_buff_id = buff.id;
-            custom_mode = true;
+            Logic.CustomMode().SetCustomChallengeID(challenge_id);
+            Logic.CustomMode().SetCustomBuffID(buff.id);
+            Logic.CustomMode().SetCustomMode(true);
             return;
         }
     }
@@ -257,7 +306,7 @@ fn sendStageInfo(session: *Session, allocator: Allocator, group_id: u32, floor: 
     }
 }
 fn sendBuffInfo(session: *Session, allocator: Allocator, group_id: u32, node: u8) !void {
-    const buff_config = try Config.loadTextMapConfig(allocator, "resources/BuffInfoConfig.json");
+    const buff_config = &ConfigManager.global_game_config_cache.buff_info_config;
     for (buff_config.text_map_config.items) |entry| {
         if (entry.group_id == group_id) {
             const list = if (node == 1) &entry.buff_list1 else &entry.buff_list2;
@@ -271,7 +320,7 @@ fn sendBuffInfo(session: *Session, allocator: Allocator, group_id: u32, node: u8
     return sendErrorMessage(session, "Error: Buff group ID not found.", allocator);
 }
 pub fn onBuffInfo(session: *Session, allocator: Allocator) !void {
-    const challenge_config = try Config.loadChallengeConfig(allocator, "resources/ChallengeMazeConfig.json");
+    const challenge_config = &ConfigManager.global_game_config_cache.challenge_maze_config;
 
     var max_moc: u32 = 0;
     var max_pf: u32 = 0;

@@ -1,11 +1,10 @@
 const std = @import("std");
 const protocol = @import("protocol");
-const Config = @import("../services/config.zig");
+const Config = @import("../data/game_config.zig");
 const Data = @import("../data.zig");
 const Lineup = @import("../services/lineup.zig");
-const ChallengeData = @import("../services/challenge.zig");
-const NodeCheck = @import("../commands/value.zig");
-const scene_managers = @import("./scene_mgr.zig");
+const ConfigManager = @import("config_mgr.zig");
+const Logic = @import("../utils/logic.zig");
 
 const ArrayList = std.ArrayList;
 const Allocator = std.mem.Allocator;
@@ -13,14 +12,8 @@ const CmdID = protocol.CmdID;
 
 pub var selectedAvatarID = [_]u32{ 1304, 1313, 1406, 1004 };
 
-fn isInList(id: u32, list: []const u32) bool {
-    for (list) |item| {
-        if (item == id) {
-            return true;
-        }
-    }
-    return false;
-}
+var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+pub var funmodeAvatarID = std.ArrayList(u32).init(gpa.allocator());
 
 const Element = enum {
     Physical,
@@ -47,7 +40,7 @@ fn getAvatarElement(avatar_id: u32) Element {
 }
 
 fn getAttackerBuffId() u32 {
-    const avatar_id = selectedAvatarID[Lineup.leader_slot];
+    const avatar_id = if (!Logic.FunMode().FunMode()) selectedAvatarID[Lineup.leader_slot] else funmodeAvatarID.items[Lineup.leader_slot];
     const element = getAvatarElement(avatar_id);
     return switch (element) {
         .Physical => 1000111,
@@ -79,7 +72,7 @@ fn createBattleAvatar(allocator: Allocator, avatarConf: Config.Avatar) !protocol
     avatar.rank = avatarConf.rank;
     avatar.promotion = avatarConf.promotion;
     avatar.avatar_type = .AVATAR_FORMAL_TYPE;
-    if (isInList(avatar.id, &Data.EnhanceAvatarID)) avatar.enhanced_id = 1;
+    if (Logic.inlist(avatar.id, &Data.EnhanceAvatarID)) avatar.enhanced_id = 1;
 
     for (avatarConf.relics.items) |relic| {
         const r = try createBattleRelic(allocator, relic.id, relic.level, relic.main_affix_id, relic.stat1, relic.cnt1, relic.step1, relic.stat2, relic.cnt2, relic.step2, relic.stat3, relic.cnt3, relic.step3, relic.stat4, relic.cnt4, relic.step4);
@@ -95,16 +88,16 @@ fn createBattleAvatar(allocator: Allocator, avatarConf: Config.Avatar) !protocol
     try avatar.equipment_list.append(lc);
 
     var talentLevel: u32 = 0;
-    const skill_list: []const u32 = if (isInList(avatar.id, &Data.Rem)) &Data.skills else &Data.skills_old;
+    const skill_list: []const u32 = if (Logic.inlist(avatar.id, &Data.Rem)) &Data.skills else &Data.skills_old;
     for (skill_list) |elem| {
         talentLevel = switch (elem) {
             1 => 6,
             2...4 => 10,
-            301, 302 => if (isInList(avatar.id, &Data.Rem)) 6 else 1,
+            301, 302 => if (Logic.inlist(avatar.id, &Data.Rem)) 6 else 1,
             else => 1,
         };
         var point_id: u32 = 0;
-        if (isInList(avatar.id, &Data.EnhanceAvatarID)) point_id = avatar.id + 10000 else point_id = avatar.id;
+        if (Logic.inlist(avatar.id, &Data.EnhanceAvatarID)) point_id = avatar.id + 10000 else point_id = avatar.id;
         const talent = protocol.AvatarSkillTree{ .point_id = point_id * 1000 + elem, .level = talentLevel };
         try avatar.skilltree_list.append(talent);
     }
@@ -160,6 +153,14 @@ const technique_buffs = [_]BuffRule{
                 .{ .key = .{ .Const = "SkillIndex" }, .value = 0 },
             } },
             .{ .id = 130602, .dynamic_values = &.{
+                .{ .key = .{ .Const = "SkillIndex" }, .value = 0 },
+            } },
+        },
+    },
+    .{
+        .avatar_id = 1308,
+        .buffs = &.{
+            .{ .id = 130803, .dynamic_values = &.{
                 .{ .key = .{ .Const = "SkillIndex" }, .value = 0 },
             } },
         },
@@ -232,7 +233,7 @@ fn addTechniqueBuffs(allocator: Allocator, battle: *protocol.SceneBattleInfo, av
         else => avatar.id,
     };
 
-    if (isInList(buffedAvatarId, &Data.IgnoreToughness)) {
+    if (Logic.inlist(buffedAvatarId, &Data.IgnoreToughness)) {
         var buff = protocol.BattleBuff{
             .id = 1000119,
             .level = 1,
@@ -280,7 +281,7 @@ fn addTechniqueBuffs(allocator: Allocator, battle: *protocol.SceneBattleInfo, av
 }
 
 fn addGolbalPassive(allocator: Allocator, battle: *protocol.SceneBattleInfo) !void {
-    if (isInList(1407, Data.AllAvatars)) {
+    if (Logic.inlist(1407, Data.AllAvatars)) {
         var targetIndexList = ArrayList(u32).init(allocator);
         errdefer targetIndexList.deinit();
         try targetIndexList.append(0);
@@ -315,7 +316,7 @@ fn addTriggerAttack(allocator: Allocator, battle: *protocol.SceneBattleInfo) !vo
     targetIndexList.deinit();
 }
 
-fn createBattleInfo(allocator: Allocator, config: Config.GameConfig, stage_monster_wave_len: u32, stage_id: u32, rounds_limit: u32) protocol.SceneBattleInfo {
+fn createBattleInfo(allocator: Allocator, config: *const Config.GameConfig, stage_monster_wave_len: u32, stage_id: u32, rounds_limit: u32) protocol.SceneBattleInfo {
     var battle = protocol.SceneBattleInfo.init(allocator);
     battle.battle_id = config.battle_config.battle_id;
     battle.stage_id = stage_id;
@@ -331,7 +332,7 @@ fn addMonsterWaves(allocator: Allocator, battle: *protocol.SceneBattleInfo, mons
         var monster_wave = protocol.SceneMonsterWave.init(allocator);
         monster_wave.monster_param = protocol.SceneMonsterWaveParam{ .level = monster_level };
         for (wave.items) |mob_id| {
-            try monster_wave.monster_list.append(.{ .monster_id = mob_id });
+            try monster_wave.monster_list.append(.{ .monster_id = mob_id, .max_hp = Logic.FunMode().GetHp() });
         }
         try battle.monster_wave_list.append(monster_wave);
     }
@@ -360,8 +361,8 @@ fn addBattleTargets(allocator: Allocator, battle: *protocol.SceneBattleInfo) !vo
     battle.battle_target_info = ArrayList(protocol.SceneBattleInfo.BattleTargetInfoEntry).init(allocator);
 
     var pfTargetHead = protocol.BattleTargetList{ .battle_target_list = ArrayList(protocol.BattleTarget).init(allocator) };
-    if (ChallengeData.on_challenge == true) {
-        if (NodeCheck.challenge_node == 0) {
+    if (Logic.Challenge().ChallengeMode()) {
+        if (Logic.CustomMode().FirstNode()) {
             try pfTargetHead.battle_target_list.append(.{ .id = 10003, .progress = 0, .total_progress = 80000 });
         } else {
             try pfTargetHead.battle_target_list.append(.{ .id = 10003, .progress = 40000, .total_progress = 80000 });
@@ -408,10 +409,8 @@ fn commonBattleSetup(
                 try addTechniqueBuffs(allocator, battle, avatar, avatarConf, avatarIndex);
                 try battle.battle_avatar_list.append(avatar);
                 avatarIndex += 1;
-                break;
             }
         }
-        if (avatarIndex >= 4) break;
     }
 
     try addMonsterWaves(allocator, battle, monster_wave_configs, monster_level);
@@ -428,9 +427,8 @@ pub const BattleManager = struct {
     }
 
     pub fn createBattle(self: *BattleManager) !protocol.SceneBattleInfo {
-        var config = try Config.loadGameConfig(self.allocator, "config.json");
-        defer config.deinit();
-
+        try ConfigManager.UpdateGameConfig();
+        const config = &ConfigManager.global_game_config_cache.game_config;
         var battle = createBattleInfo(
             self.allocator,
             config,
@@ -442,7 +440,7 @@ pub const BattleManager = struct {
         try commonBattleSetup(
             self.allocator,
             &battle,
-            &selectedAvatarID,
+            if (!Logic.FunMode().FunMode()) &selectedAvatarID else funmodeAvatarID.items,
             config.avatar_config.items,
             config.battle_config.monster_wave,
             config.battle_config.monster_level,
@@ -455,9 +453,9 @@ pub const BattleManager = struct {
 
 pub const ChallegeStageManager = struct {
     allocator: Allocator,
-    game_config_cache: *scene_managers.GameConfigCache,
+    game_config_cache: *ConfigManager.GameConfigCache,
 
-    pub fn init(allocator: Allocator, cache: *scene_managers.GameConfigCache) ChallegeStageManager {
+    pub fn init(allocator: Allocator, cache: *ConfigManager.GameConfigCache) ChallegeStageManager {
         return ChallegeStageManager{
             .allocator = allocator,
             .game_config_cache = cache,
@@ -465,40 +463,41 @@ pub const ChallegeStageManager = struct {
     }
 
     pub fn createChallegeStage(self: *ChallegeStageManager) !protocol.SceneBattleInfo {
-        if (ChallengeData.challenge_stageID == 0) {
+        if (!Logic.Challenge().FoundStage()) {
             std.log.info("Challenge stage ID is 0, skipping challenge battle creation and returning an empty battle info.", .{});
             return protocol.SceneBattleInfo.init(self.allocator);
         }
-        var config = try Config.loadGameConfig(self.allocator, "config.json");
-        defer config.deinit();
+
+        try ConfigManager.UpdateGameConfig();
+        const config = &ConfigManager.global_game_config_cache.game_config;
         const stage_config = &self.game_config_cache.stage_config;
         var battle: protocol.SceneBattleInfo = undefined;
         var found_stage = false;
 
         for (stage_config.stage_config.items) |stageConf| {
-            if (stageConf.stage_id == ChallengeData.challenge_stageID) {
+            if (stageConf.stage_id == Logic.Challenge().GetChallengeStageID()) {
                 battle = createBattleInfo(
                     self.allocator,
                     config,
                     @intCast(stageConf.monster_list.items.len),
                     stageConf.stage_id,
-                    if (ChallengeData.challenge_mode != 1) 30 else 4,
+                    if (Logic.Challenge().GetChallengeMode() != 1) 30 else 4,
                 );
                 found_stage = true;
                 try commonBattleSetup(
                     self.allocator,
                     &battle,
-                    &selectedAvatarID,
+                    if (!Logic.FunMode().FunMode()) &selectedAvatarID else funmodeAvatarID.items,
                     config.avatar_config.items,
                     stageConf.monster_list,
                     stageConf.level,
-                    ChallengeData.challenge_blessing,
+                    Logic.Challenge().GetChallengeBlessingID(),
                 );
                 break;
             }
         }
         if (!found_stage) {
-            std.log.err("Challenge stage with ID {d} not found in config.", .{ChallengeData.challenge_stageID});
+            std.log.err("Challenge stage with ID {d} not found in config.", .{Logic.Challenge().GetChallengeStageID()});
             return error.StageNotFound;
         }
         return battle;

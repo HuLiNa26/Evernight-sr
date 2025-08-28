@@ -1,6 +1,6 @@
 const std = @import("std");
 const Session = @import("Session.zig");
-const Cache = @import("../src/manager/scene_mgr.zig");
+const ConfigManager = @import("../src/manager/config_mgr.zig");
 const Allocator = std.mem.Allocator;
 
 pub fn listen() !void {
@@ -19,8 +19,8 @@ pub fn listen() !void {
         const thread = try std.Thread.spawn(.{}, runSession, .{
             conn.address,
             conn.stream,
-            Cache.global_main_allocator,
-            &Cache.global_game_config_cache,
+            ConfigManager.global_main_allocator,
+            &ConfigManager.global_game_config_cache,
         });
         thread.detach();
     }
@@ -30,7 +30,7 @@ fn runSession(
     address: std.net.Address,
     stream: std.net.Stream,
     main_allocator: Allocator,
-    game_config_cache: *Cache.GameConfigCache,
+    game_config_cache: *ConfigManager.GameConfigCache,
 ) !void {
     std.log.info("new connection from {}", .{address});
 

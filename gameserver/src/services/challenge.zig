@@ -2,105 +2,21 @@ const std = @import("std");
 const protocol = @import("protocol");
 const Session = @import("../Session.zig");
 const Packet = @import("../Packet.zig");
-const Config = @import("config.zig");
-const Res_config = @import("res_config.zig");
 const Data = @import("../data.zig");
-const ChallegeStageManager = @import("../manager/battle_mgr.zig").ChallegeStageManager;
-const scene_mgr_mod = @import("../manager/scene_mgr.zig");
-const SceneManager = scene_mgr_mod.SceneManager;
-const ChallengeSceneManager = scene_mgr_mod.ChallengeSceneManager;
-
-const lineup_mgr_mod = @import("../manager/lineup_mgr.zig");
-const LineupManager = lineup_mgr_mod.LineupManager;
-const ChallengeLineupManager = lineup_mgr_mod.ChallengeLineupManager;
-const deinitLineupInfo = lineup_mgr_mod.deinitLineupInfo;
-
-const challenge_mgr_mod = @import("../manager/challenge_mgr.zig");
-const ChallengeManager = challenge_mgr_mod.ChallengeManager;
-const deinitCurChallenge = challenge_mgr_mod.deinitCurChallenge;
-const Value = @import("../commands/value.zig");
+const SceneManager = @import("../manager/scene_mgr.zig");
+const LineupManager = @import("../manager/lineup_mgr.zig");
+const ChallengeManager = @import("../manager/challenge_mgr.zig");
+const ConfigManager = @import("../manager/config_mgr.zig");
+const Logic = @import("../utils/logic.zig");
 
 const ArrayList = std.ArrayList;
 const Allocator = std.mem.Allocator;
 const CmdID = protocol.CmdID;
 
-pub fn UidGenerator() type {
-    return struct {
-        current_id: u32,
-
-        const Self = @This();
-
-        pub fn init() Self {
-            return Self{ .current_id = 100000 };
-        }
-
-        pub fn nextId(self: *Self) u32 {
-            self.current_id +%= 1; // Using wrapping addition
-            return self.current_id;
-        }
-    };
-}
-
-fn contains(list: *const std.ArrayListAligned(u32, null), value: u32) bool {
-    for (list.items) |item| {
-        if (item == value) {
-            return true;
-        }
-    }
-    return false;
-}
-pub var on_challenge: bool = false;
-
-pub const ChallengeBlessing = ArrayList(u32);
-pub var challenge_blessing: []const u32 = &.{};
-pub var challenge_mode: u32 = 0;
-
-pub var challenge_planeID: u32 = 0;
-pub var challenge_floorID: u32 = 0;
-pub var challenge_entryID: u32 = 0;
-pub var challenge_worldID: u32 = 0;
-pub var challenge_monsterID: u32 = 0;
-pub var challenge_eventID: u32 = 0;
-pub var challenge_groupID: u32 = 0;
-pub var challenge_maze_groupID: u32 = 0;
-pub var challenge_stageID: u32 = 0;
-
-pub var challengeID: u32 = 0;
-pub var challenge_buffID: u32 = 0;
-
-pub var challenge_peak_hard: bool = true;
-
-pub const ChallengeAvatarList = ArrayList(u32);
-pub var avatar_list: ChallengeAvatarList = ChallengeAvatarList.init(std.heap.page_allocator);
-
-pub fn resetChallengeState() void {
-    on_challenge = false;
-    challenge_mode = 0;
-    challenge_planeID = 0;
-    challenge_floorID = 0;
-    challenge_entryID = 0;
-    challenge_worldID = 0;
-    challenge_monsterID = 0;
-    challenge_eventID = 0;
-    challenge_groupID = 0;
-    challenge_maze_groupID = 0;
-    challenge_stageID = 0;
-    challengeID = 0;
-    challenge_buffID = 0;
-    challenge_blessing = &.{};
-    _ = avatar_list.clearRetainingCapacity();
-}
-
-pub const AvatarListMap = std.AutoHashMap(u32, std.ArrayList(u32));
-pub var saved_peak_lineups: AvatarListMap = AvatarListMap.init(std.heap.page_allocator);
-
 pub fn onGetChallenge(session: *Session, _: *const Packet, allocator: Allocator) !void {
-    var challenge_config = try Config.loadChallengeConfig(allocator, "resources/ChallengeMazeConfig.json");
-    defer challenge_config.deinit();
+    const challenge_config = &ConfigManager.global_game_config_cache.challenge_maze_config;
     var rsp = protocol.GetChallengeScRsp.init(allocator);
-
     rsp.retcode = 0;
-
     for (challenge_config.challenge_config.items) |ids| {
         var challenge = protocol.Challenge.init(allocator);
         var history = protocol.ChallengeHistoryMaxLevel.init(allocator);
@@ -122,7 +38,6 @@ pub fn onGetChallenge(session: *Session, _: *const Packet, allocator: Allocator)
         try rsp.max_level_list.append(history);
         try rsp.challenge_list.append(challenge);
     }
-
     try session.send(CmdID.CmdGetChallengeScRsp, rsp);
 }
 pub fn onGetChallengeGroupStatistics(session: *Session, packet: *const Packet, allocator: Allocator) !void {
@@ -134,10 +49,10 @@ pub fn onGetChallengeGroupStatistics(session: *Session, packet: *const Packet, a
     try session.send(CmdID.CmdGetChallengeGroupStatisticsScRsp, rsp);
 }
 pub fn onLeaveChallenge(session: *Session, _: *const Packet, allocator: Allocator) !void {
-    var lineup_mgr = LineupManager.init(allocator);
+    var lineup_mgr = LineupManager.LineupManager.init(allocator);
     var lineup = try lineup_mgr.createLineup();
     _ = &lineup;
-    var scene_manager = SceneManager.init(allocator);
+    var scene_manager = SceneManager.SceneManager.init(allocator);
     var scene_info = try scene_manager.createScene(20422, 20422001, 2042201, 1025);
     _ = &scene_info;
     try session.send(CmdID.CmdQuitBattleScNotify, protocol.QuitBattleScNotify{});
@@ -146,18 +61,17 @@ pub fn onLeaveChallenge(session: *Session, _: *const Packet, allocator: Allocato
         .lineup = lineup,
         .scene = scene_info,
     });
-    resetChallengeState();
-    challenge_mode = 0;
+    Logic.Challenge().resetChallengeState();
     try session.send(CmdID.CmdLeaveChallengeScRsp, protocol.LeaveChallengeScRsp{
         .retcode = 0,
     });
 }
 
 pub fn onLeaveChallengePeak(session: *Session, _: *const Packet, allocator: Allocator) !void {
-    var lineup_mgr = LineupManager.init(allocator);
+    var lineup_mgr = LineupManager.LineupManager.init(allocator);
     var lineup = try lineup_mgr.createLineup();
     _ = &lineup;
-    var scene_manager = SceneManager.init(allocator);
+    var scene_manager = SceneManager.SceneManager.init(allocator);
     var scene_info = try scene_manager.createScene(20422, 20422001, 2042201, 1025);
     _ = &scene_info;
     try session.send(CmdID.CmdQuitBattleScNotify, protocol.QuitBattleScNotify{});
@@ -166,8 +80,7 @@ pub fn onLeaveChallengePeak(session: *Session, _: *const Packet, allocator: Allo
         .lineup = lineup,
         .scene = scene_info,
     });
-    resetChallengeState();
-    challenge_mode = 0;
+    Logic.Challenge().resetChallengeState();
     try session.send(CmdID.CmdLeaveChallengePeakScRsp, protocol.LeaveChallengePeakScRsp{
         .retcode = 0,
     });
@@ -175,35 +88,23 @@ pub fn onLeaveChallengePeak(session: *Session, _: *const Packet, allocator: Allo
 
 pub fn onGetCurChallengeScRsp(session: *Session, _: *const Packet, allocator: Allocator) !void {
     var rsp = protocol.GetCurChallengeScRsp.init(allocator);
-    var lineup_manager = ChallengeLineupManager.init(allocator);
-    var lineup_info = try lineup_manager.createLineup(avatar_list);
-    var challenge_manager = ChallengeManager.init(allocator);
+    var lineup_manager = LineupManager.ChallengeLineupManager.init(allocator);
+    var lineup_info = try lineup_manager.createLineup(Logic.Challenge().GetAvatarIDs());
+    var challenge_manager = ChallengeManager.ChallengeManager.init(allocator);
     var cur_challenge_info = try challenge_manager.createChallenge(
-        challengeID,
-        challenge_buffID,
+        Logic.Challenge().GetChallengeID(),
+        Logic.Challenge().GetChallengeBuffID(),
     );
 
     rsp.retcode = 0;
-    if (on_challenge == true) {
+    if (Logic.Challenge().ChallengeMode()) {
         rsp.cur_challenge = cur_challenge_info;
         try rsp.lineup_list.append(lineup_info);
-
-        std.debug.print("CURRENT CHALLENGE STAGE ID:{}\n", .{challenge_stageID});
-        std.debug.print("CURRENT CHALLENGE LINEUP AVATAR ID:{}\n", .{avatar_list});
-        std.debug.print("CURRENT CHALLENGE MONSTER ID:{}\n", .{challenge_monsterID});
-        if (challenge_mode == 0) {
-            std.debug.print("CURRENT CHALLENGE: {} MOC\n", .{challenge_mode});
-        } else if (challenge_mode == 1) {
-            std.debug.print("CURRENT CHALLENGE: {} PF\n", .{challenge_mode});
-            std.debug.print("CURRENT CHALLENGE STAGE BLESSING ID:{}, SELECTED BLESSING ID:{}\n", .{ challenge_blessing[0], challenge_blessing[1] });
-        } else {
-            std.debug.print("CURRENT CHALLENGE: {} AS\n", .{challenge_mode});
-            std.debug.print("CURRENT CHALLENGE STAGE BLESSING ID:{}, SELECTED BLESSING ID:{}\n", .{ challenge_blessing[0], challenge_blessing[1] });
-        }
+        Logic.Challenge().GetCurChallengeStatus();
     } else {
-        deinitLineupInfo(&lineup_info);
-        deinitCurChallenge(&cur_challenge_info);
-        std.debug.print("CURRENT ON CHALLENGE STATE: {}\n", .{on_challenge});
+        LineupManager.deinitLineupInfo(&lineup_info);
+        ChallengeManager.deinitCurChallenge(&cur_challenge_info);
+        std.debug.print("NOT ON CHALLENGE\n", .{});
     }
 
     try session.send(CmdID.CmdGetCurChallengeScRsp, rsp);
@@ -212,62 +113,53 @@ pub fn onStartChallenge(session: *Session, packet: *const Packet, allocator: All
     const req = try packet.getProto(protocol.StartChallengeCsReq, allocator);
     defer req.deinit();
     var rsp = protocol.StartChallengeScRsp.init(allocator);
-    if (Value.custom_mode == true) {
-        challengeID = Value.selected_challenge_id;
-        challenge_buffID = Value.selected_buff_id;
-        if (Value.challenge_node == 0) {
-            for (req.first_lineup.items) |id| {
-                try avatar_list.append(id);
-            }
+    if (Logic.CustomMode().CustomMode()) {
+        Logic.Challenge().SetChallengeID(Logic.CustomMode().GetCustomChallengeID());
+        Logic.Challenge().SetChallengeBuffID(Logic.CustomMode().GetCustomBuffID());
+        if (Logic.CustomMode().FirstNode()) {
+            try Logic.Challenge().AddAvatar(req.first_lineup.items);
         } else {
-            {
-                for (req.second_lineup.items) |id| {
-                    try avatar_list.append(id);
-                }
-            }
+            try Logic.Challenge().AddAvatar(req.second_lineup.items);
         }
     } else {
-        challengeID = req.challenge_id;
-        if (Value.challenge_node == 0) {
-            for (req.first_lineup.items) |id| {
-                try avatar_list.append(id);
-            }
-            if (challengeID > 20000 and challengeID < 30000)
-                challenge_buffID = req.stage_info.?.story_info.?.buff_one;
-            if (challengeID > 30000)
-                challenge_buffID = req.stage_info.?.boss_info.?.buff_one;
+        Logic.Challenge().SetChallengeID(req.challenge_id);
+        if (Logic.CustomMode().FirstNode()) {
+            try Logic.Challenge().AddAvatar(req.first_lineup.items);
+            if (Logic.Challenge().GameModePF())
+                Logic.Challenge().SetChallengeBuffID(req.stage_info.?.story_info.?.buff_one);
+            if (Logic.Challenge().GameModeAS())
+                Logic.Challenge().SetChallengeBuffID(req.stage_info.?.boss_info.?.buff_one);
         } else {
-            for (req.second_lineup.items) |id| {
-                try avatar_list.append(id);
-            }
-            if (challengeID > 20000 and challengeID < 30000)
-                challenge_buffID = req.stage_info.?.story_info.?.buff_two;
-            if (challengeID > 30000)
-                challenge_buffID = req.stage_info.?.boss_info.?.buff_two;
+            try Logic.Challenge().AddAvatar(req.second_lineup.items);
+            if (Logic.Challenge().GameModePF())
+                Logic.Challenge().SetChallengeBuffID(req.stage_info.?.story_info.?.buff_two);
+            if (Logic.Challenge().GameModeAS())
+                Logic.Challenge().SetChallengeBuffID(req.stage_info.?.boss_info.?.buff_two);
         }
     }
-    var lineup_manager = ChallengeLineupManager.init(allocator);
-    var lineup_info = try lineup_manager.createLineup(avatar_list);
+    var lineup_manager = LineupManager.ChallengeLineupManager.init(allocator);
+    var lineup_info = try lineup_manager.createLineup(Logic.Challenge().GetAvatarIDs());
     _ = &lineup_info;
 
-    var challenge_manager = ChallengeManager.init(allocator);
+    var challenge_manager = ChallengeManager.ChallengeManager.init(allocator);
     var cur_challenge_info = try challenge_manager.createChallenge(
-        challengeID,
-        challenge_buffID,
+        Logic.Challenge().GetChallengeID(),
+        Logic.Challenge().GetChallengeBuffID(),
     );
     _ = &cur_challenge_info;
 
-    var scene_challenge_manager = ChallengeSceneManager.init(allocator);
+    const ids = Logic.Challenge().GetSceneIDs();
+    var scene_challenge_manager = SceneManager.ChallengeSceneManager.init(allocator);
     var scene_info = try scene_challenge_manager.createScene(
-        avatar_list,
-        challenge_planeID,
-        challenge_floorID,
-        challenge_entryID,
-        challenge_worldID,
-        challenge_monsterID,
-        challenge_eventID,
-        challenge_groupID,
-        challenge_maze_groupID,
+        Logic.Challenge().GetAvatarIDs(),
+        ids[0],
+        ids[1],
+        ids[2],
+        ids[3],
+        ids[4],
+        ids[5],
+        ids[6],
+        ids[7],
     );
     _ = &scene_info;
 
@@ -276,17 +168,10 @@ pub fn onStartChallenge(session: *Session, packet: *const Packet, allocator: All
     rsp.cur_challenge = cur_challenge_info;
     try rsp.lineup_list.append(lineup_info);
 
-    on_challenge = true;
-
+    Logic.Challenge().SetChallenge();
     try session.send(CmdID.CmdStartChallengeScRsp, rsp);
-    std.debug.print("SEND PLANE ID {} FLOOR ID {} ENTRY ID {} GROUP ID {} MAZE GROUP ID {}\n", .{
-        challenge_planeID,
-        challenge_floorID,
-        challenge_entryID,
-        challenge_groupID,
-        challenge_maze_groupID,
-    });
-    const anchor_motion = ChallengeSceneManager.getAnchorMotion(scene_info.entry_id);
+    Logic.Challenge().GetCurSceneStatus();
+    const anchor_motion = SceneManager.ChallengeSceneManager.getAnchorMotion(scene_info.entry_id);
     if (anchor_motion) |motion| {
         for (scene_info.entity_group_list.items) |*group| {
             for (group.entity_list.items) |*entity| {
@@ -326,19 +211,19 @@ pub fn onGetChallengePeakData(session: *Session, _: *const Packet, allocator: Al
     var rsp = protocol.GetChallengePeakDataScRsp.init(allocator);
     rsp.retcode = 0;
     const target_king = [_]u32{ 3003, 3004, 3005 };
-    const cleared_avatar = [_]u32{1413};
     var reward = ArrayList(u32).init(allocator);
     for (1..13) |i| {
         try reward.append(@intCast(i));
     }
     var ava = ArrayList(u32).init(allocator);
-    try ava.appendSlice(&cleared_avatar);
-    const peak_group = try Config.loadChallengePeakGroupConfig(allocator, "resources/ChallengePeakGroupConfig.json");
-    const peak_boss = try Config.loadChallengePeakBossConfig(allocator, "resources/ChallengePeakBossConfig.json");
+    try ava.appendSlice(&[_]u32{1413});
+    const peak_group = &ConfigManager.global_game_config_cache.challenge_peak_group_config;
+    const peak_boss = &ConfigManager.global_game_config_cache.challenge_peak_boss_config;
     for (peak_group.challenge_peak_group.items) |id| {
         for (peak_boss.challenge_peak_boss_config.items) |boss| {
             if (boss.id == id.boss_level_id) {
                 var data = protocol.ChallengePeakData.init(allocator);
+                const unk = ArrayList(protocol.JNLLONBKNEI).init(allocator);
                 data.knight_stage_clear = 3;
                 data.knight_stage_star = 9;
                 data.challenge_peak_group_id = id.id;
@@ -349,11 +234,14 @@ pub fn onGetChallengePeakData(session: *Session, _: *const Packet, allocator: Al
                     .peak_avatar_list = ava,
                     .challenge_peak_clear = true,
                     .challenge_peak_record = .{
+                        .NBAMNJCGOIK = unk,
                         .buff_id = boss.buff_list.items[0],
                         .peak_avatar_list_display = ava,
                         .peak_avatar_list = ava,
                     },
                     .challenge_peak_record_display = .{
+                        .NBAMNJCGOIK = unk,
+                        .buff_id = boss.buff_list.items[0],
                         .peak_avatar_list_display = ava,
                         .peak_avatar_list = ava,
                         .challenge_peak_perfect_clear = true,
@@ -387,9 +275,7 @@ pub fn onSetChallengePeakMobLineupAvatar(session: *Session, packet: *const Packe
         var build = protocol.ChallengePeakClearedData.init(allocator);
         build.challenge_peak_id = list.challenge_peak_id;
         build.peak_avatar_list = list.peak_avatar_list;
-        var avatar_copy = std.ArrayList(u32).init(std.heap.page_allocator);
-        try avatar_copy.appendSlice(list.peak_avatar_list.items);
-        try saved_peak_lineups.put(list.challenge_peak_id, avatar_copy);
+        try Logic.Challenge().SavePeakLineup(list.challenge_peak_id, list.peak_avatar_list.items);
         try update.challenge_peak_cleared_data.append(build);
     }
     var rsp = protocol.SetChallengePeakMobLineupAvatarScRsp.init(allocator);
@@ -405,29 +291,31 @@ pub fn onStartChallengePeak(session: *Session, packet: *const Packet, allocator:
     var rsp = protocol.StartChallengePeakScRsp.init(allocator);
     rsp.retcode = 0;
     if (req.peak_avatar_list.items.len != 0) {
-        try avatar_list.appendSlice(req.peak_avatar_list.items);
+        Logic.Challenge().SetPeakBoss(true);
+        try Logic.Challenge().AddAvatar(req.peak_avatar_list.items);
     } else {
-        if (saved_peak_lineups.get(req.challenge_peak_id)) |saved_list|
-            try avatar_list.appendSlice(saved_list.items);
+        Logic.Challenge().SetPeakBoss(false);
+        try Logic.Challenge().LoadPeakLineup(req.challenge_peak_id);
     }
-    var lineup_manager = ChallengeLineupManager.init(allocator);
-    var lineup_info = try lineup_manager.createPeakLineup(avatar_list);
+    var lineup_manager = LineupManager.ChallengeLineupManager.init(allocator);
+    var lineup_info = try lineup_manager.createPeakLineup(Logic.Challenge().GetAvatarIDs());
     _ = &lineup_info;
 
-    var challenge_manager = ChallengeManager.init(allocator);
+    var challenge_manager = ChallengeManager.ChallengeManager.init(allocator);
     var cur_challenge_info = try challenge_manager.createChallengePeak(req.challenge_peak_id, req.peak_buff_id);
     _ = &cur_challenge_info;
 
-    var scene_challenge_manager = ChallengeSceneManager.init(allocator);
+    const ids = Logic.Challenge().GetPeakSceneIDs();
+    var scene_challenge_manager = SceneManager.ChallengeSceneManager.init(allocator);
     var scene_info = try scene_challenge_manager.createPeakScene(
-        avatar_list,
-        challenge_planeID,
-        challenge_floorID,
-        challenge_entryID,
-        challenge_monsterID,
-        challenge_eventID,
-        challenge_groupID,
-        challenge_maze_groupID,
+        Logic.Challenge().GetAvatarIDs(),
+        ids[0],
+        ids[1],
+        ids[2],
+        ids[3],
+        ids[4],
+        ids[5],
+        ids[6],
     );
     _ = &scene_info;
     try session.send(CmdID.CmdEnterSceneByServerScNotify, protocol.EnterSceneByServerScNotify{
@@ -435,15 +323,9 @@ pub fn onStartChallengePeak(session: *Session, packet: *const Packet, allocator:
         .lineup = lineup_info,
         .scene = scene_info,
     });
-    on_challenge = true;
-    std.debug.print("SEND PLANE ID {} FLOOR ID {} ENTRY ID {} GROUP ID {} MAZE GROUP ID {}\n", .{
-        challenge_planeID,
-        challenge_floorID,
-        challenge_entryID,
-        challenge_groupID,
-        challenge_maze_groupID,
-    });
-    const anchor_motion = ChallengeSceneManager.getAnchorMotion(scene_info.entry_id);
+    Logic.Challenge().SetChallenge();
+    Logic.Challenge().GetCurSceneStatus();
+    const anchor_motion = SceneManager.ChallengeSceneManager.getAnchorMotion(scene_info.entry_id);
     if (anchor_motion) |motion| {
         for (scene_info.entity_group_list.items) |*group| {
             for (group.entity_list.items) |*entity| {
@@ -469,7 +351,7 @@ pub fn onSetChallengePeakBossHardMode(session: *Session, packet: *const Packet, 
     rsp.retcode = 0;
     rsp.peak_hard_mode = req.peak_hard_mode;
     rsp.challenge_peak_group_id = req.challenge_peak_group_id;
-    challenge_peak_hard = req.peak_hard_mode;
+    Logic.Challenge().SetChallengePeakHard(req.peak_hard_mode);
     try session.send(CmdID.CmdSetChallengePeakBossHardModeScRsp, rsp);
 }
 pub fn onGetFriendBattleRecordDetail(session: *Session, packet: *const Packet, allocator: Allocator) !void {
@@ -477,8 +359,8 @@ pub fn onGetFriendBattleRecordDetail(session: *Session, packet: *const Packet, a
     var rsp = protocol.GetFriendBattleRecordDetailScRsp.init(allocator);
     rsp.retcode = 0;
     rsp.uid = req.uid;
-    const peak_group = try Config.loadChallengePeakGroupConfig(allocator, "resources/ChallengePeakGroupConfig.json");
-    const peak_boss = try Config.loadChallengePeakBossConfig(allocator, "resources/ChallengePeakBossConfig.json");
+    const peak_group = &ConfigManager.global_game_config_cache.challenge_peak_group_config;
+    const peak_boss = &ConfigManager.global_game_config_cache.challenge_peak_boss_config;
     var record_list = ArrayList(protocol.ChallengeAvatarInfo).init(allocator);
     try record_list.appendSlice(&[_]protocol.ChallengeAvatarInfo{
         .{ .level = 80, .index = 0, .id = 1413, .avatar_type = protocol.AvatarType.AVATAR_UPGRADE_AVAILABLE_TYPE },

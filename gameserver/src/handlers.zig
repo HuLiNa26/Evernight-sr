@@ -17,7 +17,6 @@ const profile = @import("services/profile.zig");
 const scene = @import("services/scene.zig");
 const events = @import("services/events.zig");
 const challenge = @import("services/challenge.zig");
-const multipath = @import("services/multipath.zig");
 
 const Allocator = std.mem.Allocator;
 const ArenaAllocator = std.heap.ArenaAllocator;

@@ -2,7 +2,7 @@ const std = @import("std");
 const protocol = @import("protocol");
 const handlers = @import("handlers.zig");
 const Packet = @import("Packet.zig");
-const Cache = @import("../src/manager/scene_mgr.zig");
+const ConfigManager = @import("../src/manager/config_mgr.zig");
 
 const Allocator = std.mem.Allocator;
 const Stream = std.net.Stream;
@@ -15,14 +15,14 @@ address: Address,
 stream: Stream,
 allocator: Allocator,
 main_allocator: Allocator,
-game_config_cache: *Cache.GameConfigCache,
+game_config_cache: *ConfigManager.GameConfigCache,
 
 pub fn init(
     address: Address,
     stream: Stream,
     session_allocator: Allocator,
     main_allocator: Allocator,
-    game_config_cache: *Cache.GameConfigCache,
+    game_config_cache: *ConfigManager.GameConfigCache,
 ) Self {
     return .{
         .address = address,

@@ -3,9 +3,9 @@ const protocol = @import("protocol");
 const Session = @import("../Session.zig");
 const Packet = @import("../Packet.zig");
 const Data = @import("../data.zig");
-const Config = @import("config.zig");
+const ConfigManager = @import("../manager/config_mgr.zig");
+const Uid = @import("../utils/uid.zig");
 
-const UidGenerator = @import("item.zig").UidGenerator;
 const ArrayList = std.ArrayList;
 const Allocator = std.mem.Allocator;
 const CmdID = protocol.CmdID;
@@ -45,9 +45,9 @@ pub fn onSelectChatBubble(session: *Session, packet: *const Packet, allocator: A
 }
 pub fn onGetPlayerBoardData(session: *Session, _: *const Packet, allocator: Allocator) !void {
     var rsp = protocol.GetPlayerBoardDataScRsp.init(allocator);
-    var generator = UidGenerator().init();
+    var generator = Uid.BaseUidGen().init();
     var display_list = protocol.DisplayAvatarVec.init(allocator);
-    const player_icon_config = try Config.loadPlayerIconConfig(allocator, "resources/AvatarPlayerIcon.json");
+    const player_icon_config = &ConfigManager.global_game_config_cache.player_icon_config;
     display_list.is_display = true;
     rsp.retcode = 0;
     try rsp.own_personal_card_skin.appendSlice(&Data.OwnedPersonalCardSkin);

@@ -31,6 +31,7 @@ const commandList = [_]Command{
     .{ .name = "sync", .action = "", .func = sync_command.onGenerateAndSync },
     .{ .name = "refill", .action = "", .func = refill_command.onRefill },
     .{ .name = "id", .action = "", .func = value_command.onBuffId },
+    .{ .name = "funmode", .action = "", .func = value_command.FunMode },
 };
 
 pub fn handleCommand(session: *Session, msg: []const u8, allocator: Allocator) !void {

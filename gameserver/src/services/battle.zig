@@ -2,15 +2,10 @@ const std = @import("std");
 const protocol = @import("protocol");
 const Session = @import("../Session.zig");
 const Packet = @import("../Packet.zig");
-const Config = @import("config.zig");
 const Data = @import("../data.zig");
-const ChallengeData = @import("challenge.zig");
-const battle_mgr_mod = @import("../manager/battle_mgr.zig");
-const BattleManager = battle_mgr_mod.BattleManager;
-const ChallegeStageManager = battle_mgr_mod.ChallegeStageManager;
-const deinitSceneBattleInfo = battle_mgr_mod.deinitSceneBattleInfo;
-const NodeCheck = @import("../commands/value.zig");
-const scene_managers = @import("../manager/scene_mgr.zig");
+const BattleManager = @import("../manager/battle_mgr.zig");
+const ConfigManager = @import("../manager/config_mgr.zig");
+const Logic = @import("../utils/logic.zig");
 
 const ArrayList = std.ArrayList;
 const Allocator = std.mem.Allocator;
@@ -18,22 +13,12 @@ const CmdID = protocol.CmdID;
 
 const log = std.log.scoped(.scene_service);
 
-// Function to check if an ID is in a list
-fn isInList(id: u32, list: []const u32) bool {
-    for (list) |item| {
-        if (item == id) {
-            return true;
-        }
-    }
-    return false;
-}
-
 pub var on_battle: bool = false;
 
 pub fn onStartCocoonStage(session: *Session, packet: *const Packet, allocator: Allocator) !void {
     const req = try packet.getProto(protocol.StartCocoonStageCsReq, allocator);
     defer req.deinit();
-    var battle_manager = BattleManager.init(allocator);
+    var battle_manager = BattleManager.BattleManager.init(allocator);
     var battle = try battle_manager.createBattle();
     _ = &battle;
     on_battle = true;
@@ -48,7 +33,7 @@ pub fn onStartCocoonStage(session: *Session, packet: *const Packet, allocator: A
 pub fn onQuickStartCocoonStage(session: *Session, packet: *const Packet, allocator: Allocator) !void {
     const req = try packet.getProto(protocol.QuickStartCocoonStageCsReq, allocator);
     defer req.deinit();
-    var battle_manager = BattleManager.init(allocator);
+    var battle_manager = BattleManager.BattleManager.init(allocator);
     var battle = try battle_manager.createBattle();
     _ = &battle;
     on_battle = true;
@@ -62,7 +47,7 @@ pub fn onQuickStartCocoonStage(session: *Session, packet: *const Packet, allocat
 pub fn onQuickStartFarmElement(session: *Session, packet: *const Packet, allocator: Allocator) !void {
     const req = try packet.getProto(protocol.QuickStartFarmElementCsReq, allocator);
     defer req.deinit();
-    var battle_manager = BattleManager.init(allocator);
+    var battle_manager = BattleManager.BattleManager.init(allocator);
     var battle = try battle_manager.createBattle();
     _ = &battle;
     on_battle = true;
@@ -76,7 +61,7 @@ pub fn onQuickStartFarmElement(session: *Session, packet: *const Packet, allocat
 pub fn onStartBattleCollege(session: *Session, packet: *const Packet, allocator: Allocator) !void {
     const req = try packet.getProto(protocol.StartBattleCollegeCsReq, allocator);
     defer req.deinit();
-    var battle_manager = BattleManager.init(allocator);
+    var battle_manager = BattleManager.BattleManager.init(allocator);
     var battle = try battle_manager.createBattle();
     _ = &battle;
     on_battle = true;
@@ -87,19 +72,19 @@ pub fn onStartBattleCollege(session: *Session, packet: *const Packet, allocator:
     });
 }
 pub fn onSceneCastSkill(session: *Session, packet: *const Packet, allocator: Allocator) !void {
-    var battle_manager = BattleManager.init(allocator);
+    var battle_manager = BattleManager.BattleManager.init(allocator);
     var battle = try battle_manager.createBattle();
-    defer deinitSceneBattleInfo(&battle);
-    var challenge_manager = ChallegeStageManager.init(allocator, &scene_managers.global_game_config_cache);
+    defer BattleManager.deinitSceneBattleInfo(&battle);
+    var challenge_manager = BattleManager.ChallegeStageManager.init(allocator, &ConfigManager.global_game_config_cache);
     var challenge = try challenge_manager.createChallegeStage();
-    defer deinitSceneBattleInfo(&challenge);
+    defer BattleManager.deinitSceneBattleInfo(&challenge);
     const req = try packet.getProto(protocol.SceneCastSkillCsReq, allocator);
     defer req.deinit();
     var battle_info: ?protocol.SceneBattleInfo = null;
     var monster_battle_info_list = ArrayList(protocol.HitMonsterBattleInfo).init(allocator);
     Highlight("SKILL INDEX: {}", .{req.skill_index});
     Highlight("ATTACKED BY ENTITY ID: {}", .{req.attacked_by_entity_id});
-    const is_challenge = ChallengeData.on_challenge;
+    const is_challenge = Logic.Challenge().ChallengeMode();
     for (req.assist_monster_entity_id_list.items) |id| {
         const attacker_id = req.attacked_by_entity_id;
         const skill_index = req.skill_index;
@@ -138,15 +123,15 @@ pub fn onSceneCastSkill(session: *Session, packet: *const Packet, allocator: All
 }
 
 pub fn onGetCurBattleInfo(session: *Session, _: *const Packet, allocator: Allocator) !void {
-    var battle_manager = BattleManager.init(allocator);
+    var battle_manager = BattleManager.BattleManager.init(allocator);
     var battle = try battle_manager.createBattle();
-    defer deinitSceneBattleInfo(&battle);
-    var challenge_manager = ChallegeStageManager.init(allocator, &scene_managers.global_game_config_cache);
+    defer BattleManager.deinitSceneBattleInfo(&battle);
+    var challenge_manager = BattleManager.ChallegeStageManager.init(allocator, &ConfigManager.global_game_config_cache);
     var challenge = try challenge_manager.createChallegeStage();
-    defer deinitSceneBattleInfo(&challenge);
+    defer BattleManager.deinitSceneBattleInfo(&challenge);
 
     var rsp = protocol.GetCurBattleInfoScRsp.init(allocator);
-    rsp.battle_info = if (ChallengeData.on_challenge == true) challenge else if (on_battle == true) battle else null;
+    rsp.battle_info = if (Logic.Challenge().ChallengeMode()) challenge else if (on_battle == true) battle else null;
     rsp.retcode = 0;
     try session.send(CmdID.CmdGetCurBattleInfoScRsp, rsp);
 }
@@ -195,10 +180,10 @@ fn getBattleType(id: u32, attacker_id: u32, skill_index: u32, is_challenge: bool
     }
     if (attacker_id >= 100000) {
         const attacker_offset = attacker_id - 100000;
-        if (isInList(attacker_offset, &Data.IgnoreBattle)) {
+        if (Logic.inlist(attacker_offset, &Data.IgnoreBattle)) {
             return protocol.MonsterBattleType.MONSTER_BATTLE_TYPE_NO_BATTLE;
         }
-        if (isInList(attacker_offset, &Data.SkipBattle)) {
+        if (Logic.inlist(attacker_offset, &Data.SkipBattle)) {
             if (is_challenge) {
                 return protocol.MonsterBattleType.MONSTER_BATTLE_TYPE_TRIGGER_BATTLE;
             } else {

@@ -1859,6 +1859,20 @@
     {
       "TriggerParams": [
         {
+          "TriggerParam": "4083",
+          "TriggerType": "TaskUnlock"
+        }
+      ],
+      "FinishTriggerParams": [],
+      "TutorialJsonPath": "Config/Level/Tutorial/Tutorial_4083.json",
+      "Priority": 10,
+      "TutorialID": 4083,
+      "RestoreType": "AutoFinish",
+      "CanInterrupt": true
+    },
+    {
+      "TriggerParams": [
+        {
           "TriggerParam": "31021",
           "TriggerType": "GetItem"
         },

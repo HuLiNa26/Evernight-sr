@@ -24,7 +24,7 @@ pub fn onGetFriendListInfo(session: *Session, _: *const Packet, allocator: Alloc
     });
 
     var friend = protocol.FriendSimpleInfo.init(allocator);
-    friend.playing_state = .PLAYING_CHALLENGE_BOSS;
+    friend.playing_state = .PLAYING_CHALLENGE_PEAK;
     friend.create_time = 0; //timestamp
     friend.remark_name = .{ .Const = "ReversedRooms" }; //friend_custom_nickname
     friend.is_marked = true;

@@ -2,12 +2,9 @@ const std = @import("std");
 const protocol = @import("protocol");
 const Session = @import("../Session.zig");
 const Packet = @import("../Packet.zig");
-const Config = @import("config.zig");
-const Data = @import("../data.zig");
-const Res_config = @import("res_config.zig");
-const LineupManager = @import("../manager/lineup_mgr.zig").LineupManager;
-const SceneManager = @import("../manager/scene_mgr.zig").SceneManager;
-const CacheScene = @import("../manager/scene_mgr.zig");
+const LineupManager = @import("../manager/lineup_mgr.zig");
+const SceneManager = @import("../manager/scene_mgr.zig");
+const ConfigManager = @import("../manager/config_mgr.zig");
 
 const ArrayList = std.ArrayList;
 const Allocator = std.mem.Allocator;
@@ -16,7 +13,7 @@ const CmdID = protocol.CmdID;
 const log = std.log.scoped(.scene_service);
 
 pub fn onGetCurSceneInfo(session: *Session, _: *const Packet, allocator: Allocator) !void {
-    var scene_manager = SceneManager.init(allocator);
+    var scene_manager = SceneManager.SceneManager.init(allocator);
     const scene_info = try scene_manager.createScene(20422, 20422001, 2042201, 1025);
     try session.send(CmdID.CmdGetCurSceneInfoScRsp, protocol.GetCurSceneInfoScRsp{
         .scene = scene_info,
@@ -25,7 +22,6 @@ pub fn onGetCurSceneInfo(session: *Session, _: *const Packet, allocator: Allocat
 }
 pub fn onSceneEntityMove(session: *Session, packet: *const Packet, allocator: Allocator) !void {
     const req = try packet.getProto(protocol.SceneEntityMoveCsReq, allocator);
-    //Since we have proper map and teleportation so I commented out this one to keep gameserver log clean :Đ
     for (req.entity_motion_list.items) |entity_motion| {
         if (entity_motion.motion) |motion| {
             if (entity_motion.entity_id > 99999 and entity_motion.entity_id < 1000000 or entity_motion.entity_id == 0)
@@ -40,12 +36,12 @@ pub fn onSceneEntityMove(session: *Session, packet: *const Packet, allocator: Al
 }
 
 pub fn onEnterScene(session: *Session, packet: *const Packet, allocator: Allocator) !void {
-    const entrance_config = &CacheScene.global_game_config_cache.map_entrance_config;
+    const entrance_config = &ConfigManager.global_game_config_cache.map_entrance_config;
 
     const req = try packet.getProto(protocol.EnterSceneCsReq, allocator);
-    var lineup_mgr = LineupManager.init(allocator);
+    var lineup_mgr = LineupManager.LineupManager.init(allocator);
     const lineup = try lineup_mgr.createLineup();
-    var scene_manager = SceneManager.init(allocator);
+    var scene_manager = SceneManager.SceneManager.init(allocator);
     var floorID: u32 = 0;
     var planeID: u32 = 0;
     var teleportID: u32 = 0;
@@ -74,7 +70,7 @@ pub fn onEnterScene(session: *Session, packet: *const Packet, allocator: Allocat
 
 pub fn onGetSceneMapInfo(session: *Session, packet: *const Packet, allocator: Allocator) !void {
     const req = try packet.getProto(protocol.GetSceneMapInfoCsReq, allocator);
-    const cached_res_config = &CacheScene.global_game_config_cache.res_config;
+    const cached_res_config = &ConfigManager.global_game_config_cache.res_config;
     const ranges = [_][2]usize{
         .{ 0, 101 },
         .{ 10000, 10051 },
@@ -133,7 +129,7 @@ pub fn onGetSceneMapInfo(session: *Session, packet: *const Packet, allocator: Al
 }
 pub fn onGetUnlockTeleport(session: *Session, _: *const Packet, allocator: Allocator) !void {
     var rsp = protocol.GetUnlockTeleportScRsp.init(allocator);
-    const res_config = try Res_config.anchorLoader(allocator, "resources/res.json");
+    const res_config = &ConfigManager.global_game_config_cache.res_config;
     for (res_config.scene_config.items) |sceneCof| {
         for (sceneCof.teleports.items) |tp| {
             try rsp.unlock_teleport_list.append(tp.teleportId);
@@ -153,7 +149,7 @@ pub fn onEnterSection(session: *Session, packet: *const Packet, allocator: Alloc
 pub fn onGetEnteredScene(session: *Session, _: *const Packet, allocator: Allocator) !void {
     var rsp = protocol.GetEnteredSceneScRsp.init(allocator);
     var noti = protocol.EnteredSceneChangeScNotify.init(allocator);
-    const entrance_config = &CacheScene.global_game_config_cache.map_entrance_config;
+    const entrance_config = &ConfigManager.global_game_config_cache.map_entrance_config;
     for (entrance_config.map_entrance_config.items) |entrance| {
         try rsp.entered_scene_info_list.append(protocol.EnteredSceneInfo{
             .floor_id = entrance.floor_id,

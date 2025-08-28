@@ -2,7 +2,7 @@ const std = @import("std");
 const protocol = @import("protocol");
 const Session = @import("../Session.zig");
 const Packet = @import("../Packet.zig");
-const Config = @import("config.zig");
+const ConfigManager = @import("../manager/config_mgr.zig");
 
 const ArrayList = std.ArrayList;
 const Allocator = std.mem.Allocator;
@@ -10,7 +10,7 @@ const CmdID = protocol.CmdID;
 
 pub fn onGetActivity(session: *Session, _: *const Packet, allocator: Allocator) !void {
     var rsp = protocol.GetActivityScheduleConfigScRsp.init(allocator);
-    const activity_config = try Config.loadActivityConfig(allocator, "resources/ActivityConfig.json");
+    const activity_config = &ConfigManager.global_game_config_cache.activity_config;
     var activ_list = protocol.ActivityScheduleData.init(allocator);
     //challenge mode pannel : 2100101
     for (activity_config.activity_config.items) |activityConf| {
@@ -37,7 +37,7 @@ pub fn onUpdateServerPrefsData(session: *Session, packet: *const Packet, allocat
 }
 pub fn onGetActivityHotData(session: *Session, _: *const Packet, allocator: Allocator) !void {
     var rsp = protocol.GetActivityHotDataScRsp.init(allocator);
-    const activity_config = try Config.loadActivityConfig(allocator, "resources/ActivityConfig.json");
+    const activity_config = &ConfigManager.global_game_config_cache.activity_config;
     for (activity_config.activity_config.items) |activityConf| {
         if (activityConf.panel_id != 30002) {
             var packaged_list = protocol.GMEBOPMAOFN.init(allocator);

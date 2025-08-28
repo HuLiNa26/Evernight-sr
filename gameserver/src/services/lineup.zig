@@ -2,9 +2,7 @@ const std = @import("std");
 const protocol = @import("protocol");
 const Session = @import("../Session.zig");
 const Packet = @import("../Packet.zig");
-const Config = @import("config.zig");
 const LineupManager = @import("../manager/lineup_mgr.zig");
-const BattleManager = @import("../manager/battle_mgr.zig");
 
 const Allocator = std.mem.Allocator;
 const CmdID = protocol.CmdID;
@@ -31,36 +29,14 @@ pub fn onChangeLineupLeader(session: *Session, packet: *const Packet, allocator:
 
 pub fn onReplaceLineup(session: *Session, packet: *const Packet, allocator: Allocator) !void {
     const req = try packet.getProto(protocol.ReplaceLineupCsReq, allocator);
-    var lineup = protocol.LineupInfo.init(allocator);
-    lineup.mp = 5;
-    lineup.max_mp = 5;
-    lineup.name = .{ .Const = "EvernightSR" };
+
+    var ids = std.ArrayList(u32).init(allocator);
+    defer ids.deinit();
+
     for (req.lineup_slot_list.items) |ok| {
-        const avatar = protocol.LineupAvatar{
-            .id = ok.id,
-            .slot = ok.slot,
-            .satiety = 0,
-            .hp = 10000,
-            .avatar_type = protocol.AvatarType.AVATAR_FORMAL_TYPE,
-            .sp_bar = .{ .cur_sp = 10000, .max_sp = 10000 },
-        };
-        if (ok.id == 1408) {
-            lineup.mp = 7;
-            lineup.max_mp = 7;
-        }
-        try lineup.avatar_list.append(avatar);
+        try ids.append(ok.id);
     }
-
-    var id_list = try allocator.alloc(u32, req.lineup_slot_list.items.len);
-    defer allocator.free(id_list);
-    for (req.lineup_slot_list.items, 0..) |slot, idx| {
-        if (idx >= 4) {
-            break;
-        }
-        id_list[idx] = slot.id;
-    }
-    try LineupManager.getSelectedAvatarID(allocator, id_list);
-
+    const lineup = try LineupManager.buildLineup(allocator, ids.items, null);
     var rsp = protocol.SyncLineupNotify.init(allocator);
     rsp.lineup = lineup;
     try session.send(CmdID.CmdSyncLineupNotify, rsp);
@@ -68,6 +44,7 @@ pub fn onReplaceLineup(session: *Session, packet: *const Packet, allocator: Allo
         .retcode = 0,
     });
 }
+
 pub fn onSetLineupName(session: *Session, packet: *const Packet, allocator: Allocator) !void {
     const req = try packet.getProto(protocol.SetLineupNameCsReq, allocator);
     try session.send(CmdID.CmdSetLineupNameScRsp, protocol.SetLineupNameScRsp{

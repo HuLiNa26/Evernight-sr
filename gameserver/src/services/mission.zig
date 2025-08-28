@@ -3,8 +3,7 @@ const protocol = @import("protocol");
 const Session = @import("../Session.zig");
 const Packet = @import("../Packet.zig");
 const Data = @import("../data.zig");
-const Config = @import("config.zig");
-const CacheScene = @import("../manager/scene_mgr.zig");
+const ConfigManager = @import("../manager/config_mgr.zig");
 
 const ArrayList = std.ArrayList;
 const Allocator = std.mem.Allocator;
@@ -13,7 +12,7 @@ const CmdID = protocol.CmdID;
 pub fn onGetMissionStatus(session: *Session, packet: *const Packet, allocator: Allocator) !void {
     const req = try packet.getProto(protocol.GetMissionStatusCsReq, allocator);
     var rsp = protocol.GetMissionStatusScRsp.init(allocator);
-    const main_mission_config = try Config.loadMainMissionConfig(allocator, "resources/MainMission.json");
+    const main_mission_config = &ConfigManager.global_game_config_cache.main_mission_config;
     rsp.retcode = 0;
     for (req.sub_mission_id_list.items) |id| {
         try rsp.sub_mission_status_list.append(protocol.Mission{ .id = id, .status = protocol.MissionStatus.MISSION_FINISH, .progress = 1 });
@@ -27,8 +26,7 @@ pub fn onGetMissionStatus(session: *Session, packet: *const Packet, allocator: A
 
 pub fn onGetTutorialGuideStatus(session: *Session, _: *const Packet, allocator: Allocator) !void {
     var rsp = protocol.GetTutorialGuideScRsp.init(allocator);
-    const tutorial_guide_config = try Config.loadTutorialGuideConfig(allocator, "resources/TutorialGuideGroup.json");
-
+    const tutorial_guide_config = &ConfigManager.global_game_config_cache.tutorial_guide_config;
     rsp.retcode = 0;
     for (tutorial_guide_config.tutorial_guide_config.items) |guideConf| {
         try rsp.tutorial_guide_list.append(protocol.TutorialGuide{ .id = guideConf.guide_group_id, .status = protocol.TutorialStatus.TUTORIAL_FINISH });
@@ -39,7 +37,7 @@ pub fn onGetTutorialGuideStatus(session: *Session, _: *const Packet, allocator: 
 
 pub fn onGetTutorialStatus(session: *Session, _: *const Packet, allocator: Allocator) !void {
     var rsp = protocol.GetTutorialScRsp.init(allocator);
-    const tutorial_guide_config = try Config.loadTutorialConfig(allocator, "resources/TutorialData.json");
+    const tutorial_guide_config = &ConfigManager.global_game_config_cache.tutorial_config;
     rsp.retcode = 0;
     for (tutorial_guide_config.tutorial_config.items) |tutorialConf| {
         try rsp.tutorial_list.append(protocol.Tutorial{ .id = tutorialConf.tutorial_id, .status = protocol.TutorialStatus.TUTORIAL_FINISH });
@@ -57,7 +55,7 @@ pub fn onFinishTalkMission(session: *Session, packet: *const Packet, allocator: 
 }
 pub fn onGetQuestData(session: *Session, _: *const Packet, allocator: Allocator) !void {
     var rsp = protocol.GetQuestDataScRsp.init(allocator);
-    const quest_config = &CacheScene.global_game_config_cache.quest_config;
+    const quest_config = &ConfigManager.global_game_config_cache.quest_config;
     for (quest_config.quest_config.items) |id| {
         var quest = protocol.Quest.init(allocator);
         quest.id = id.quest_id;

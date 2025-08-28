@@ -2,10 +2,8 @@ const commandhandler = @import("../command.zig");
 const std = @import("std");
 const Session = @import("../Session.zig");
 const protocol = @import("protocol");
-const Config = @import("../services/config.zig");
-const Res_config = @import("../services/res_config.zig");
-const LineupManager = @import("../manager/lineup_mgr.zig").LineupManager;
-const SceneManager = @import("../manager/scene_mgr.zig").SceneManager;
+const LineupManager = @import("../manager/lineup_mgr.zig");
+const SceneManager = @import("../manager/scene_mgr.zig");
 
 const Allocator = std.mem.Allocator;
 const CmdID = protocol.CmdID;
@@ -48,9 +46,9 @@ pub fn handle(session: *Session, args: []const u8, allocator: Allocator) !void {
     var floorID: u32 = 0;
     if (plane_id) |pid| planeID = pid;
     if (floor_id) |fid| floorID = fid;
-    var scene_manager = SceneManager.init(allocator);
+    var scene_manager = SceneManager.SceneManager.init(allocator);
     const scene_info = try scene_manager.createScene(planeID, floorID, entry_id, 0);
-    var lineup_mgr = LineupManager.init(allocator);
+    var lineup_mgr = LineupManager.LineupManager.init(allocator);
     const lineup = try lineup_mgr.createLineup();
     try session.send(CmdID.CmdEnterSceneByServerScNotify, protocol.EnterSceneByServerScNotify{
         .reason = protocol.EnterSceneReason.ENTER_SCENE_REASON_NONE,

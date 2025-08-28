@@ -3,25 +3,15 @@ const protocol = @import("protocol");
 const Session = @import("../Session.zig");
 const Packet = @import("../Packet.zig");
 const Data = @import("../data.zig");
-const GachaData = @import("../commands/value.zig");
+const Logic = @import("../utils/logic.zig");
 
 const ArrayList = std.ArrayList;
 const Allocator = std.mem.Allocator;
 const CmdID = protocol.CmdID;
 
-// function to check the list if true
-fn isInList(id: u32, list: []const u32) bool {
-    for (list) |item| {
-        if (item == id) {
-            return true;
-        }
-    }
-    return false;
-}
-
 pub fn onGetGachaInfo(session: *Session, _: *const Packet, allocator: Allocator) !void {
     var info = ArrayList(protocol.GachaCeilingAvatar).init(allocator);
-    for (GachaData.StandardBanner) |id| {
+    for (Logic.Banner().GetStandardBanner()) |id| {
         try info.appendSlice(&[_]protocol.GachaCeilingAvatar{
             .{ .repeated_cnt = 300, .avatar_id = id },
         });
@@ -150,13 +140,13 @@ pub fn onDoGacha(session: *Session, packet: *const Packet, allocator: std.mem.Al
             is_five_star = true;
             five_star_pity = 0;
             if (guaranteed_five_star_rate_up) {
-                selected_banner = &GachaData.RateUp;
+                selected_banner = Logic.Banner().GetRateUp();
                 guaranteed_five_star_rate_up = false;
             } else {
                 if (rnd.boolean()) {
-                    selected_banner = &GachaData.RateUp;
+                    selected_banner = Logic.Banner().GetRateUp();
                 } else {
-                    selected_banner = &GachaData.StandardBanner;
+                    selected_banner = Logic.Banner().GetStandardBanner();
                     guaranteed_five_star_rate_up = true;
                 }
             }
@@ -166,7 +156,7 @@ pub fn onDoGacha(session: *Session, packet: *const Packet, allocator: std.mem.Al
             got_four_star = true;
 
             if (guaranteed_four_star_rate_up or rnd.float(f64) < 0.70) {
-                selected_banner = &GachaData.RateUpFourStars;
+                selected_banner = Logic.Banner().GetRateUpFourStar();
                 guaranteed_four_star_rate_up = false;
             } else {
                 if (rnd.boolean()) {
@@ -185,7 +175,7 @@ pub fn onDoGacha(session: *Session, packet: *const Packet, allocator: std.mem.Al
     if (req.gacha_num > 1 and !got_four_star) {
         selected_ids.items[
             std.crypto.random.intRangeLessThan(usize, 0, selected_ids.items.len)
-        ] = pickRandomId(&GachaData.RateUpFourStars);
+        ] = pickRandomId(Logic.Banner().GetRateUpFourStar());
     }
     for (selected_ids.items) |id| {
         var gacha_item = protocol.GachaItem.init(allocator);
@@ -194,7 +184,7 @@ pub fn onDoGacha(session: *Session, packet: *const Packet, allocator: std.mem.Al
         var back_item = std.ArrayList(protocol.Item).init(allocator);
         var transfer_item = std.ArrayList(protocol.Item).init(allocator);
         if (id < 10000) {
-            if (isInList(id, &GachaData.RateUp) or isInList(id, &GachaData.StandardBanner)) {
+            if (Logic.inlist(id, Logic.Banner().GetRateUp()) or Logic.inlist(id, Logic.Banner().GetStandardBanner())) {
                 try transfer_item.appendSlice(&[_]protocol.Item{
                     .{ .item_id = id + 10000, .num = 1 },
                     .{ .item_id = 252, .num = 20 },

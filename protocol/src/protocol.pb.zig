@@ -1438,6 +1438,7 @@ pub const PlayingState = enum(i32) {
     PLAYING_CHALLENGE_BOSS = 6,
     PLAYING_ROGUE_TOURN = 7,
     PLAYING_ROGUE_MAGIC = 8,
+    PLAYING_CHALLENGE_PEAK = 9,
     _,
 };
 
@@ -4632,42 +4633,44 @@ pub const CmdMessageType = enum(i32) {
 
 pub const CmdMiscModuleType = enum(i32) {
     CmdMiscModuleTypeNone = 0,
-    CmdTriggerVoiceScRsp = 4196,
-    CmdUpdateGunPlayDataScRsp = 4186,
-    CmdGetMovieRacingDataCsReq = 4187,
-    CmdGetOrigamiPropInfoCsReq = 4166,
-    CmdMazeKillDirectScRsp = 4135,
     CmdSubmitOrigamiItemCsReq = 4132,
-    CmdGetGunPlayDataScRsp = 4167,
-    CmdDifficultyAdjustmentGetDataCsReq = 4133,
-    CmdGetShareDataCsReq = 4177,
-    CmdMazeKillDirectCsReq = 4200,
-    CmdGetMovieRacingDataScRsp = 4115,
-    CmdSubmitOrigamiItemScRsp = 4182,
-    CmdShareCsReq = 4141,
-    CmdSwitchMascotUpdateScNotify = 4109,
-    CmdGetSwitchMascotDataCsReq = 4161,
-    CmdCancelDirectDeliveryNoticeScRsp = 4159,
-    CmdSecurityReportScRsp = 4189,
-    CmdCancelCacheNotifyScRsp = 4162,
-    CmdCancelCacheNotifyCsReq = 4119,
-    CmdTakePictureCsReq = 4102,
-    CmdTriggerVoiceCsReq = 4122,
-    CmdGetOrigamiPropInfoScRsp = 4192,
-    CmdDifficultyAdjustmentUpdateDataScRsp = 4164,
-    CmdDirectDeliveryScNotify = 4106,
-    CmdSecurityReportCsReq = 4134,
-    CmdGetSwitchMascotDataScRsp = 4176,
-    CmdShareScRsp = 4114,
-    CmdTakePictureScRsp = 4185,
-    CmdGetGunPlayDataCsReq = 4121,
-    CmdUpdateMovieRacingDataCsReq = 4120,
-    CmdUpdateMovieRacingDataScRsp = 4190,
-    CmdGetShareDataScRsp = 4181,
-    CmdUpdateGunPlayDataCsReq = 4125,
     CmdDifficultyAdjustmentUpdateDataCsReq = 4110,
-    CmdDifficultyAdjustmentGetDataScRsp = 4145,
+    CmdGetMovieRacingDataScRsp = 4115,
+    CmdGetOrigamiPropInfoScRsp = 4192,
     CmdCancelDirectDeliveryNoticeCsReq = 4146,
+    CmdDifficultyAdjustmentGetDataCsReq = 4133,
+    CmdDifficultyAdjustmentUpdateDataScRsp = 4164,
+    CmdCancelCacheNotifyCsReq = 4119,
+    CmdGetGunPlayDataScRsp = 4167,
+    CmdUpdateMovieRacingDataScRsp = 4190,
+    CmdGetOrigamiPropInfoCsReq = 4166,
+    CmdTakePictureScRsp = 4185,
+    CmdGetUnreleasedBlockInfoScRsp = 4151,
+    CmdSwitchMascotUpdateScNotify = 4109,
+    CmdGetSwitchMascotDataScRsp = 4176,
+    CmdSubmitOrigamiItemScRsp = 4182,
+    CmdTriggerVoiceCsReq = 4122,
+    CmdDirectDeliveryScNotify = 4106,
+    CmdUpdateMovieRacingDataCsReq = 4120,
+    CmdCancelCacheNotifyScRsp = 4162,
+    CmdShareCsReq = 4141,
+    CmdUpdateGunPlayDataScRsp = 4186,
+    CmdCancelDirectDeliveryNoticeScRsp = 4159,
+    CmdGetMovieRacingDataCsReq = 4187,
+    CmdGetUnreleasedBlockInfoCsReq = 4173,
+    CmdGetShareDataScRsp = 4181,
+    CmdGetShareDataCsReq = 4177,
+    CmdShareScRsp = 4114,
+    CmdMazeKillDirectScRsp = 4135,
+    CmdGetGunPlayDataCsReq = 4121,
+    CmdSecurityReportCsReq = 4134,
+    CmdUpdateGunPlayDataCsReq = 4125,
+    CmdTriggerVoiceScRsp = 4196,
+    CmdDifficultyAdjustmentGetDataScRsp = 4145,
+    CmdTakePictureCsReq = 4102,
+    CmdSecurityReportScRsp = 4189,
+    CmdMazeKillDirectCsReq = 4200,
+    CmdGetSwitchMascotDataCsReq = 4161,
     _,
 };
 
@@ -14115,11 +14118,13 @@ pub const ChallengeBossPhaseSettleNotify = struct {
 
 pub const ChallengePeakBuild = struct {
     equipment_unique_id: u32 = 0,
+    GGDIIBCDOBB: u32 = 0,
     relic_list: ArrayList(EquipRelic),
     avatar_id: u32 = 0,
 
     pub const _desc_table = .{
         .equipment_unique_id = fd(2, .{ .Varint = .Simple }),
+        .GGDIIBCDOBB = fd(5, .{ .Varint = .Simple }),
         .relic_list = fd(8, .{ .List = .{ .SubMessage = {} } }),
         .avatar_id = fd(9, .{ .Varint = .Simple }),
     };
@@ -14148,22 +14153,24 @@ pub const ChallengePeakClearedData = struct {
 };
 
 pub const ChallengePeakRecord = struct {
+    peak_avatar_list_display: ArrayList(u32),
     challenge_peak_perfect_clear: bool = false,
+    NBAMNJCGOIK: ArrayList(JNLLONBKNEI),
+    peak_avatar_list: ArrayList(u32),
     KJBLMAPKMBK: u32 = 0,
     JBOLAAFDKAN: u32 = 0,
-    buff_id: u32 = 0,
-    peak_avatar_list_display: ArrayList(u32),
     FAMKHOIKGFJ: u32 = 0,
-    peak_avatar_list: ArrayList(u32),
+    buff_id: u32 = 0,
 
     pub const _desc_table = .{
+        .peak_avatar_list_display = fd(8, .{ .PackedList = .{ .Varint = .Simple } }),
         .challenge_peak_perfect_clear = fd(11, .{ .Varint = .Simple }),
+        .NBAMNJCGOIK = fd(13, .{ .List = .{ .SubMessage = {} } }),
+        .peak_avatar_list = fd(1, .{ .PackedList = .{ .Varint = .Simple } }),
         .KJBLMAPKMBK = fd(10, .{ .Varint = .Simple }),
         .JBOLAAFDKAN = fd(7, .{ .Varint = .Simple }),
-        .buff_id = fd(15, .{ .Varint = .Simple }),
-        .peak_avatar_list_display = fd(8, .{ .PackedList = .{ .Varint = .Simple } }),
         .FAMKHOIKGFJ = fd(12, .{ .Varint = .Simple }),
-        .peak_avatar_list = fd(1, .{ .PackedList = .{ .Varint = .Simple } }),
+        .buff_id = fd(15, .{ .Varint = .Simple }),
     };
 
     pub usingnamespace protobuf.MessageMixins(@This());
@@ -14217,29 +14224,71 @@ pub const DGFFNOPFLNE = struct {
     pub usingnamespace protobuf.MessageMixins(@This());
 };
 
-pub const ChallengePeakData = struct {
-    knight_stage_clear: u32 = 0,
-    challenge_peak_data_info: ?ChallengePeakDataInfo = null,
-    challenge_peak_group_id: u32 = 0,
-    challenge_peak_load_up: ArrayList(ChallengePeakBuild),
-    disable_peak_hard_mode: bool = false,
-    challenge_peak_reward_taken: ArrayList(u32),
-    GGIHMGHJNGG: bool = false,
-    challenge_peak_cleared_data: ArrayList(ChallengePeakClearedData),
-    knight_stage_star: u32 = 0,
-    APGEFOFMKBG: ?DGFFNOPFLNE = null,
+pub const JNLLONBKNEI = struct {
+    GGDIIBCDOBB: u32 = 0,
+    OBLCCGAEILP: u32 = 0,
 
     pub const _desc_table = .{
-        .knight_stage_clear = fd(2, .{ .Varint = .Simple }),
-        .challenge_peak_data_info = fd(10, .{ .SubMessage = {} }),
-        .challenge_peak_group_id = fd(3, .{ .Varint = .Simple }),
-        .challenge_peak_load_up = fd(15, .{ .List = .{ .SubMessage = {} } }),
+        .GGDIIBCDOBB = fd(12, .{ .Varint = .Simple }),
+        .OBLCCGAEILP = fd(5, .{ .Varint = .Simple }),
+    };
+
+    pub usingnamespace protobuf.MessageMixins(@This());
+};
+
+pub const CIILCBCKMPD = struct {
+    ECDNCDKJODG: ArrayList(JNLLONBKNEI),
+    KGAEPLCAEFA: ArrayList(u32),
+    CPJDJHIHNJB: u32 = 0,
+    OFGPFIJLHNC: u32 = 0,
+    JHIAKMCHPLB: ArrayList(u32),
+
+    pub const _desc_table = .{
+        .ECDNCDKJODG = fd(5, .{ .List = .{ .SubMessage = {} } }),
+        .KGAEPLCAEFA = fd(2, .{ .PackedList = .{ .Varint = .Simple } }),
+        .CPJDJHIHNJB = fd(8, .{ .Varint = .Simple }),
+        .OFGPFIJLHNC = fd(12, .{ .Varint = .Simple }),
+        .JHIAKMCHPLB = fd(7, .{ .PackedList = .{ .Varint = .Simple } }),
+    };
+
+    pub usingnamespace protobuf.MessageMixins(@This());
+};
+
+pub const OEGMEPOHPMA = struct {
+    NHFMPGIIPID: ArrayList(CIILCBCKMPD),
+
+    pub const _desc_table = .{
+        .NHFMPGIIPID = fd(14, .{ .List = .{ .SubMessage = {} } }),
+    };
+
+    pub usingnamespace protobuf.MessageMixins(@This());
+};
+
+pub const ChallengePeakData = struct {
+    disable_peak_hard_mode: bool = false,
+    challenge_peak_group_id: u32 = 0,
+    knight_stage_star: u32 = 0,
+    GGIHMGHJNGG: bool = false,
+    APGEFOFMKBG: ?DGFFNOPFLNE = null,
+    challenge_peak_load_up: ArrayList(ChallengePeakBuild),
+    challenge_peak_reward_taken: ArrayList(u32),
+    knight_stage_clear: u32 = 0,
+    challenge_peak_cleared_data: ArrayList(ChallengePeakClearedData),
+    EFIPIGENFNI: ?OEGMEPOHPMA = null,
+    challenge_peak_data_info: ?ChallengePeakDataInfo = null,
+
+    pub const _desc_table = .{
         .disable_peak_hard_mode = fd(7, .{ .Varint = .Simple }),
-        .challenge_peak_reward_taken = fd(6, .{ .PackedList = .{ .Varint = .Simple } }),
-        .GGIHMGHJNGG = fd(12, .{ .Varint = .Simple }),
-        .challenge_peak_cleared_data = fd(1, .{ .List = .{ .SubMessage = {} } }),
+        .challenge_peak_group_id = fd(3, .{ .Varint = .Simple }),
         .knight_stage_star = fd(11, .{ .Varint = .Simple }),
+        .GGIHMGHJNGG = fd(12, .{ .Varint = .Simple }),
         .APGEFOFMKBG = fd(5, .{ .SubMessage = {} }),
+        .challenge_peak_load_up = fd(15, .{ .List = .{ .SubMessage = {} } }),
+        .challenge_peak_reward_taken = fd(6, .{ .PackedList = .{ .Varint = .Simple } }),
+        .knight_stage_clear = fd(2, .{ .Varint = .Simple }),
+        .challenge_peak_cleared_data = fd(1, .{ .List = .{ .SubMessage = {} } }),
+        .EFIPIGENFNI = fd(14, .{ .SubMessage = {} }),
+        .challenge_peak_data_info = fd(10, .{ .SubMessage = {} }),
     };
 
     pub usingnamespace protobuf.MessageMixins(@This());
